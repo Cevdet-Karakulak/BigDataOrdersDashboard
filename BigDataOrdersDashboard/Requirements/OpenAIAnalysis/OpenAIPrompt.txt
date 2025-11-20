@@ -1,0 +1,343 @@
+﻿Sen bir veri analisti ve müşteri davranış uzmanısın.
+Aşağıdaki müşteri verisini analiz et ve modern dashboard formatında, çok düzenli ve görsel olarak güçlü bir rapor üret.
+
+Lütfen çıktıyı şu formatta üret:
+
+---
+
+## 👤 Müşteri Profili  
+- **Adı Soyadı:** …
+- **Toplam Sipariş:** …
+- **Toplam Harcama:** …
+- **Analiz Dönemi:** …
+
+---
+
+## 🛍️ Ürün Tercihleri  
+**En çok tercih edilen kategoriler:**
+- 🏠 Ev & Dekorasyon — XX sipariş
+- 🧴 Kozmetik — XX sipariş
+- … (bullet şeklinde yaz)
+
+**Öne çıkan ürünler:**
+- • Ürün Adı (adet - fiyat)
+- • Ürün Adı (adet - fiyat)
+
+---
+
+## ⏰ Zaman Analizi  
+| Dönem | Sipariş Sayısı |
+|------|----------------|
+| En yoğun ay | … |
+| En yoğun gün | … |
+| Favori Saat Aralığı | … |
+
+---
+
+## 💰 Harcama Davranışı  
+- **Aylık Ortalama Sipariş:** …
+- **Ortalama Sepet Tutarı:** …
+- **En yüksek sipariş:** …
+- **En düşük sipariş:** …
+
+---
+
+## 🎯 Sadakat & Trend  
+- 📈 **Tekrar alışveriş eğilimi:** Yüksek/Orta/Düşük
+- ❤️ **Marka sadakati:** …
+- 🔄 **Kategori sadakati:** …
+
+---
+
+## 🚀 Pazarlama Önerileri  
+- 🎁 Avantajlı kampanyalar öner
+- ✉️ Hedefli e-posta öner
+- 🛒 Sık satın alınan ürünlere göre öneri
+- 🆕 Yeni ürün tavsiyesi stratejisi
+
+---
+
+Veriyi yazılı biçimde özetlemeyin, bu formatı uygulayın.
+
+Veri:
+{jsonData}
+
+
+------------------------------------------------------------------------
+
+Sen bir veri analisti ve müşteri davranışı uzmanısın.
+Aşağıdaki müşterinin son sipariş verilerini analiz et ve **Markdown formatında**, satır başları bozulmadan,
+dashboard sunumu için görsel olarak güçlü bir rapor üret.
+
+ÇOK ÖNEMLİ:  
+- Her başlık yeni satırda olmalı  
+- Her bullet yeni satırda olmalı  
+- Kod bloğu veya tek satır output verme  
+- Tek paragraf yapma  
+- Markdown'ı düzgün render edilecek şekilde ver  
+- Her bölüm arasında boş satır bırak  
+
+FORMAT:
+
+## 👤 Müşteri Profili
+- **Ad Soyad:** …
+- **Toplam Sipariş:** …
+- **Toplam Harcama:** …
+- **Dönem:** …
+
+## 🛍️ Ürün Tercihleri
+**En çok tercih edilen kategoriler:**
+- 🏠 Ev & Dekorasyon — XX sipariş
+- 🧴 Kozmetik — XX sipariş
+- …
+
+**Öne çıkan ürünler:**
+- • Ürün Adı (adet — fiyat)
+- • Ürün Adı …
+
+## ⏰ Zaman Analizi
+| Dönem | Sipariş Sayısı |
+|------|----------------|
+| En yoğun ay | … |
+| En yoğun gün | … |
+| Favori Saat Aralığı | … |
+
+## 💰 Harcama Davranışı
+- **Aylık ortalama sipariş:** …
+- **Ortalama sepet tutarı:** …
+- **En yüksek sipariş:** …
+- **En düşük sipariş:** …
+
+## 🎯 Sadakat & Trend
+- 📈 **Tekrar alışveriş eğilimi:** …
+- ❤️ **Marka sadakati:** …
+- 🔄 **Kategori sadakati:** …
+
+## 🚀 Pazarlama Önerileri
+- 🎁 Kampanya önerisi: …
+- ✉️ E-posta hedefleme: …
+- 🛒 Sık alınan ürünlere göre öneri: …
+- 🆕 Yeni ürün stratejisi: …
+
+Veri:
+{jsonData}
+
+------------------------------------------------------------------------
+
+ string prompt = $@"
+⚠️ Çok önemli:
+Kesinlikle ``` (backtick) veya kod bloğu verme.
+Sadece saf HTML üret. Markdown verme. Kod bloğu verme.
+
+Sen bir veri analisti ve müşteri davranış uzmanısın.
+Aşağıdaki veriyi analiz et ve sonucu HTML formatında ver. 
+Kesinlikle düz metin verme, sadece <div>, <h3>, <ul>, <li>, <p>, <table>, <tr>, <td> tagları kullan.
+
+Format örneği:
+<h3>👤 Müşteri Profili</h3>
+<p><b>Ad:</b> ...</p>
+<p><b>Toplam Sipariş:</b> ...</p>
+
+<h3>🛍️ Ürün Tercihleri</h3>
+<ul>
+ <li>🏠 Ev & Dekorasyon — 5 sipariş</li>
+ <li>💄 Kozmetik — 3 sipariş</li>
+</ul>
+
+<h3>⏰ Zaman Analizi</h3>
+<table>
+<tr><td>En yoğun ay</td><td>...</td></tr>
+<tr><td>En yoğun gün</td><td>...</td></tr>
+</table>
+
+<h3>🚀 Pazarlama Önerileri</h3>
+<ul>
+ <li>🎁 Kampanya önerisi: ...</li>
+ <li>✉️ Hedefli e-posta: ...</li>
+</ul>
+
+Veri:
+{jsonData}
+
+
+";
+
+---------------------------------------------------
+
+using BigDataOrdersDashboard.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json;
+
+namespace BigDataOrdersDashboard.ViewComponents.CustomerDetailViewComponents
+{
+    public class _CustomerDetailAIAnalysisByLastOrdersComponentPartial : ViewComponent
+    {
+        private readonly BigDataOrdersDbContext _context;
+        private readonly IHttpClientFactory _httpClientFactory;
+        public _CustomerDetailAIAnalysisByLastOrdersComponentPartial(BigDataOrdersDbContext context, IHttpClientFactory httpClientFactory)
+        {
+            _context = context;
+            _httpClientFactory = httpClientFactory;
+        }
+        public async Task<IViewComponentResult> InvokeAsync(int id)
+        {
+            id = 8;
+
+            //Müşteri Listesi
+            var customer = _context.Customers
+                .Include(c => c.Orders)
+                .ThenInclude(o => o.Product)
+                .ThenInclude(p => p.Category)
+                .Where(c => c.CustomerId == id)
+                .Select(c => new
+                {
+                    c.CustomerName,
+                    c.CustomerSurname,
+                    Orders = c.Orders
+                    .OrderByDescending(o => o.OrderDate)
+                    .Take(20)
+                    .Select(o => new
+                    {
+                        o.OrderDate,
+                        Product = o.Product.ProductName,
+                        Category = o.Product.Category.CategoryName,
+                        o.Quantity,
+                        o.Product.UnitPrice,
+                        TotalPrice = o.Quantity * o.Product.UnitPrice
+                    })
+                }).FirstOrDefault();
+
+            var jsonData = JsonSerializer.Serialize(customer);
+
+            //Prompt Yazımı
+            string prompt = $@"
+⚠️ Çok önemli:
+Kesinlikle ``` (backtick) veya kod bloğu verme.
+Sadece saf HTML üret. Markdown verme. Kod bloğu verme.
+
+Sen bir veri analisti ve müşteri davranış uzmanısın.
+Aşağıdaki veriyi analiz et ve sonucu HTML formatında ver. 
+Kesinlikle düz metin verme, sadece <div>, <h3>, <ul>, <li>, <p>, <table>, <tr>, <td> tagları kullan.
+
+Format örneği:
+<h3>👤 Müşteri Profili</h3>
+<p><b>Ad:</b> ...</p>
+<p><b>Toplam Sipariş:</b> ...</p>
+
+<h3>🛍️ Ürün Tercihleri</h3>
+<ul>
+ <li>🏠 Ev & Dekorasyon — 5 sipariş</li>
+ <li>💄 Kozmetik — 3 sipariş</li>
+</ul>
+
+<h3>⏰ Zaman Analizi</h3>
+<table>
+<tr><td>En yoğun ay</td><td>...</td></tr>
+<tr><td>En yoğun gün</td><td>...</td></tr>
+</table>
+
+<h3>🚀 Pazarlama Önerileri</h3>
+<ul>
+ <li>🎁 Kampanya önerisi: ...</li>
+ <li>✉️ Hedefli e-posta: ...</li>
+</ul>
+
+Veri:
+{jsonData}
+
+
+";
+
+            //OpenAI Api İsteği
+            var httpClient = _httpClientFactory.CreateClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "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");
+
+            var requestBody = new
+            {
+                model = "gpt-4o-mini",
+                messages = new[]
+                {
+                    new {role="system",content="You are a senior marketing data analyst."},
+                    new {role="user",content=prompt},
+                },
+                temperature = 0.5
+            };
+
+            var jsonRequest = JsonSerializer.Serialize(requestBody);
+            var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+            //İsteği Gönderme
+            var response = await httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            //Json Cevabı Ayrıştır
+            var doc = JsonDocument.Parse(responseString);
+            var completion = doc.RootElement
+                .GetProperty("choices")[0]
+                .GetProperty("message")
+                .GetProperty("content")
+                .GetString();
+
+            ViewBag.Customer = $"{customer.CustomerName} {customer.CustomerSurname}";
+            ViewBag.Analysis = completion;
+
+            return View();
+        }
+    }
+}
+
+-----------------------------------------------------------------
+
+⚠️ Çok önemli:
+Kesinlikle ``` (backtick) veya kod bloğu verme.
+Sadece saf HTML üret. Markdown verme. Kod bloğu verme.
+
+Sen bir veri analisti ve müşteri davranış uzmanısın.
+Aşağıdaki veriyi analiz et ve sonucu HTML formatında ver.
+
+Bu başlıkları kullan (sırasını ve isimleri değiştirme):
+
+<h3>1. 👤 Müşteri Profili</h3>
+<p><b>Ad:</b> ...</p>
+<p><b>Soyad:</b> ...</p>
+<p><b>Toplam Sipariş:</b> ...</p>
+<p><b>Toplam Harcama:</b> ...</p>
+
+<h3>2. 🛍️ Ürün Tercihleri</h3>
+<ul>
+  <li>🏠 Ev & Dekorasyon – X sipariş</li>
+  <li>💄 Kozmetik – X sipariş</li>
+</ul>
+<p><b>Öne çıkan ürünler:</b></p>
+<ul>
+  <li>Ürün adı (adet — fiyat)</li>
+</ul>
+
+<h3>3. ⏰ Zaman Bazlı Alışveriş Davranışı</h3>
+<p>En yoğun ay: ...</p>
+<p>En yoğun gün: ...</p>
+<p>Favori saat aralığı: ...</p>
+
+<h3>4. 💰 Ortalama Harcama ve Sıklık</h3>
+<p>Aylık ortalama sipariş: ...</p>
+<p>Ortalama sepet tutarı: ...</p>
+<p>En yüksek sipariş: ...</p>
+<p>En düşük sipariş: ...</p>
+
+<h3>5. 🎯 Sadakat ve Tekrar Harcama Eğilimi</h3>
+<p>Tekrar alışveriş eğilimi: ...</p>
+<p>Marka sadakati: ...</p>
+<p>Kategori sadakati: ...</p>
+
+<h3>6. 🚀 Pazarlama Önerileri</h3>
+<ul>
+  <li>🎁 Kampanya önerisi: ...</li>
+  <li>✉️ Hedefli e-posta: ...</li>
+  <li>🆕 Yeni ürün tanıtımı önerisi: ...</li>
+</ul>
+
+Veri:
+{jsonData}

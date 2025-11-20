@@ -1,0 +1,113 @@
+﻿<style>
+    .kpi-badge {
+        float: right;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 6px;
+    }
+
+        .kpi-badge i {
+            font-size: 16px;
+        }
+</style>
+
+<div class="col-lg-3 col-md-4">
+    <div class="row clearfix">
+
+        <!-- KPI 1 -->
+        <div class="col-lg-12 col-md-6 col-sm-12">
+            <div class="card top-report">
+                <div class="body">
+
+                    <h3 class="m-t-0">
+                        @ViewBag.TodayOrderCount
+                        <span class="kpi-badge"
+                              style="border-color:@ViewBag.TrendingBadgeColor; color:@ViewBag.TrendingBadgeColor;">
+                            <i class="@ViewBag.TrendingBadgeIcon"></i>
+                        </span>
+                    </h3>
+
+                    <p class="text-muted">Bugünkü Sipariş Sayısı</p>
+
+                    <div class="progress" style="height:6px;">
+                        <div class="progress-bar l-turquoise"
+                             style="width:@(ViewBag.TodayVsAverageRatio.ToString().Replace(',', '.'))%;">
+                        </div>
+                    </div>
+
+                    <small style="color:@ViewBag.ChangeRateColor">
+                        Değişim: % @ViewBag.DailyOrderChange
+                    </small>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="col-lg-12 col-md-6 col-sm-12">
+            <div class="card top-report">
+                <div class="body">
+
+                    <h3 class="m-t-0">
+                        @ViewBag.CancelledOrders7Days
+                        <span class="kpi-badge"
+                              style="border-color:@ViewBag.CancelBadgeColor; color:@ViewBag.CancelBadgeColor;">
+                            <i class="@ViewBag.CancelBadgeIcon"></i>
+                        </span>
+                    </h3>
+
+                    <p class="text-muted">İptal Edilen Siparişler (Son 7 Gün)</p>
+
+                    <div class="progress" style="height:6px;">
+                        <div class="progress-bar"
+                             style="background:@ViewBag.CancelColor;
+                                    width:@(ViewBag.CancelRate.ToString().Replace(',', '.'))%;">
+                        </div>
+                    </div>
+
+                    <small style="color:@ViewBag.CancelColor">
+                        Durum: @ViewBag.CancelText
+                    </small>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="col-lg-12">
+            <div class="card top-report">
+                <div class="body">
+
+                    <h3 class="m-t-0">
+                        @ViewBag.CompletedOrders
+
+                        <span class="kpi-badge"
+                              style="border-color:@ViewBag.CompletionBadgeColor; color:@ViewBag.CompletionBadgeColor;">
+                            <i class="@ViewBag.CompletionBadgeIcon"></i>
+                        </span>
+                    </h3>
+
+                    <p class="text-muted">Tamamlanan Siparişler</p>
+
+                    <div class="progress" style="height:6px;">
+                        <div class="progress-bar"
+                             style="background:@ViewBag.CompletionColor;
+                                    width:@(ViewBag.CompletionRate.ToString().Replace(',', '.'))%;">
+                        </div>
+                    </div>
+
+                    <small style="color:@ViewBag.CompletionColor">
+                        Durum: @ViewBag.CompletionText
+                    </small>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

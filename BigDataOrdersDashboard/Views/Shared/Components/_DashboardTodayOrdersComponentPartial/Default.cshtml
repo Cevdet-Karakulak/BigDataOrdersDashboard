@@ -1,0 +1,94 @@
+﻿@model List<OrderSummaryViewModel>
+
+<div class="row clearfix">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            <div class="header">
+                <h2>Bugünkü Siparişler <small>Bugün Verilen Son 5 Sipariş</small> </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more-vert"></i> </a>
+                        <ul class="dropdown-menu slideUp ">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive members_profiles">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Müşteri</th>
+                            <th>Ürün</th>
+                            <th>Birim Fiyat / €</th>
+                            <th>Miktar</th>
+                            <th>Toplam Fiyat</th>
+                            <th>Ödeme Yöntemi</th>
+                            <th>Sipariş Durumu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CustomerName</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.UnitPrice</td>
+                                <td>@item.Quantity</td>
+                                <td>@((item.UnitPrice * item.Quantity).ToString("N2")) €</td>
+
+                                <td>
+                                    @if (item.PaymentMethod == "Kredi Kartı")
+                                    {
+                                        <span>💳 @item.PaymentMethod</span>
+                                    }
+                                    else if (item.PaymentMethod == "Google Pay")
+                                    {
+                                        <span>📱 @item.PaymentMethod</span>
+                                    }
+                                    else if (item.PaymentMethod == "Banka Kartı")
+                                    {
+                                        <span>🏦 @item.PaymentMethod</span>
+                                    }
+                                    else if (item.PaymentMethod == "PayPal")
+                                    {
+                                        <span>💻 @item.PaymentMethod</span>
+                                    }
+                                    else if (item.PaymentMethod == "Havale / EFT")
+                                    {
+                                        <span>💰 @item.PaymentMethod</span>
+                                    }
+                                    else
+                                    {
+                                        <span>⚙️ @item.PaymentMethod</span>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (item.OrderStatus == "Tamamlandı")
+                                    {
+                                        <span>✅ @item.OrderStatus</span>
+                                    }
+                                    else if (item.OrderStatus == "Beklemede" || item.OrderStatus == "Hazırlanıyor" || item.OrderStatus == "Kargoda")
+                                    {
+                                        <span>⏳ @item.OrderStatus</span>
+                                    }
+                                    else if (item.OrderStatus == "İptal Edildi")
+                                    {
+                                        <span>❌ @item.OrderStatus</span>
+                                    }
+                                    else
+                                    {
+                                        <span>⚪ @item.OrderStatus</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

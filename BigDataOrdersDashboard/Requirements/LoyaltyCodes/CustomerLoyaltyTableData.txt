@@ -1,0 +1,7 @@
+﻿ <div class="progress" style="height:20px;">
+                                        <div class="progress-bar @(item.LoyaltyScore >= 80 ? "bg-success" : item.LoyaltyScore >= 50 ? "bg-warning" : "bg-danger")"
+                                             role="progressbar"
+                                             style="width:@item.LoyaltyScore%; font-weight:600;">
+                                            @item.LoyaltyScore
+                                        </div>
+                                    </div>

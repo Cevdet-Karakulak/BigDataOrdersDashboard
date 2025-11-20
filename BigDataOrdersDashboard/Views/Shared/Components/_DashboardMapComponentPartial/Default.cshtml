@@ -1,0 +1,152 @@
+﻿@model List<CountryReportDto>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<style>
+    .dashboard-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .map-container {
+        flex: 2;
+        min-width: 600px;
+        height: 500px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .table-container {
+        flex: 1;
+        min-width: 400px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        height: 500px; /* Harita ile aynı yükseklik */
+    }
+
+        .table-container h3 {
+            margin: 0 0 10px 0;
+        }
+
+    /* Scrollable tablo alanı */
+    .table-wrapper {
+        flex: 1;
+        overflow-y: auto;
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-wrapper th, .table-wrapper td {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .table-wrapper th {
+            background: #f5f5f5;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+    .positive {
+        color: green;
+        font-weight: bold;
+    }
+
+    .negative {
+        color: red;
+        font-weight: bold;
+    }
+
+    /* Scrollbar tasarımı */
+    .table-wrapper::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="dashboard-container">
+    <!-- Harita -->
+    <div id="map" class="map-container"></div>
+
+    <!-- Tablo -->
+    <div class="table-container">
+        <h3>Ülke İstatistikleri</h3>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ülke</th>
+                        <th>2023</th>
+                        <th>2024</th>
+                        <th>Değişim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Country</td>
+                            <td>@item.Total2023</td>
+                            <td>@item.Total2024</td>
+                            <td>
+                                @if (item.ChangeRate >= 0)
+                                {
+                                    <span class="positive">+@item.ChangeRate % ⬆</span>
+                                }
+                                else
+                                {
+                                    <span class="negative">@item.ChangeRate % ⬇</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var data = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+
+    var map = L.map('map').setView([45, 10], 4);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+    data.forEach(x => {
+        if (x.Latitude && x.Longitude) {
+            var popupContent = `
+                <b>${x.Country}</b><br>
+                2023: ${x.Total2023}<br>
+                2024: ${x.Total2024}<br>
+                Değişim: ${x.ChangeRate} %
+            `;
+            var marker = L.circleMarker([x.Latitude, x.Longitude], {
+                radius: 10,
+                fillColor: x.ChangeRate >= 0 ? "green" : "red",
+                color: "#fff",
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(map);
+            marker.bindPopup(popupContent);
+        }
+    });
+</script>

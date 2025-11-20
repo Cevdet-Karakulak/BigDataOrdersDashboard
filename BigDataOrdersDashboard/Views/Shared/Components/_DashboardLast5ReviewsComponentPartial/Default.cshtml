@@ -1,0 +1,31 @@
+﻿@* @model List<Review>
+
+<div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="card ">
+        <div class="header">
+            <h2>Son 5 Değerlendirme</h2>
+        </div>
+        <div class="body">
+            <ul class="inbox-widget list-unstyled clearfix">
+                
+                @foreach(var item in Model)
+                {
+                    <li class="inbox-inner">
+                        <a href="javascript:void(0);">
+                            <div class="inbox-item">
+                                <div class="inbox-img"> <img src="@item.Customer.CustomerImageUrl" alt=""> </div>
+                                <div class="inbox-item-info">
+                                    <p class="author">@item.Customer.CustomerName @item.Customer.CustomerSurname - @item.Product.ProductName</p>
+                                    <p class="inbox-message">@item.ReviewText</p>
+                                    <p class="inbox-date">@item.ReviewDate.ToString("dd-MMM-yyyy")</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+               
+
+            </ul>
+        </div>
+    </div>
+</div> *@

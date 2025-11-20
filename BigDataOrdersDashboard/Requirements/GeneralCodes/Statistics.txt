@@ -1,0 +1,562 @@
+﻿<div class="icon col-12 text-center">
+    <i class="zmdi zmdi-trending-up" style="font-size: 48px; color: white;"></i>
+</div>
+
+--------------------------------------------------------------------------
+
+<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card info-box-2 l-parpl">
+        <div class="body">
+            <div class="icon" style="text-align:center; margin-top:-5px;">
+                <i class="zmdi zmdi-eye" style="font-size:36px; color:white;"></i>
+            </div>
+            <div class="content col-12 text-center" style="margin-top:5px;">
+                <div class="text">IMPRESSIONS</div>
+                <div class="number">457 512</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+--------------------------------------------------------------------------
+
+<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card info-box-2 l-parpl">
+        <div class="body" style="padding: 10px 0 8px 0;">
+            <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                <i class="zmdi zmdi-eye" style="font-size:34px; color:white;"></i>
+            </div>
+            <div class="content col-12 text-center" style="margin-top:2px;">
+                <div class="text">IMPRESSIONS</div>
+                <div class="number">457 512</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+--------------------------------------------------------------------------
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    İstatistik Sayfası
+                    <small class="text-muted">Sipariş ve Diğer İstatistikler</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Ürünler</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Sipariş Listesi</a></li>
+                    <li class="breadcrumb-item active">Ana Sayfa</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+
+        <!-- 1. Kart - Usage -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-seagreen">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-trending-up" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">USAGE</div>
+                        <div class="number">98%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Kart - Impressions -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-parpl">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-eye" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">IMPRESSIONS</div>
+                        <div class="number">457 512</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Kart - Total Sales -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-blue">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-shopping-cart" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">TOTAL SALES</div>
+                        <div class="number">$125 543</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Kart - Currency -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-coral">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-balance" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">CURRENCY</div>
+                        <div class="number">$1 063</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+--------------------------------------------------------------------------
+
+<div class="row clearfix">
+
+    <!-- 5. Kart - CUSTOMERS -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-amber">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-accounts" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">CUSTOMERS</div>
+                    <div class="number">12 345</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Kart - PRODUCTS -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-salmon">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-label" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">PRODUCTS</div>
+                    <div class="number">18 932</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Kart - ORDERS -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-teal">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-shopping-basket" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">ORDERS</div>
+                    <div class="number">503 224</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Kart - SUPPORT TICKETS -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-purple">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-headset-mic" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">SUPPORT TICKETS</div>
+                    <div class="number">1 209</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+--------------------------------------------------------------------------
+
+<div class="row clearfix">
+
+    <!-- 9. Kart - REVENUE -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-green">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-money" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">REVENUE</div>
+                    <div class="number">$984 320</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. Kart - RETURNS -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-pink">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-undo" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">RETURNS</div>
+                    <div class="number">1 142</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. Kart - DELIVERED ORDERS -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-cyan">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-truck" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">DELIVERED ORDERS</div>
+                    <div class="number">23 450</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. Kart - FEEDBACK -->
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card info-box-2 l-indigo">
+            <div class="body" style="padding:10px 0 8px 0;">
+                <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                    <i class="zmdi zmdi-thumb-up" style="font-size:34px; color:white;"></i>
+                </div>
+                <div class="content col-12 text-center" style="margin-top:2px;">
+                    <div class="text">FEEDBACK</div>
+                    <div class="number">8 937</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+--------------------------------------------------------------------------
+
+
+.l-green { background: linear-gradient(to right, #11998e, #38ef7d); }
+.l-pink { background: linear-gradient(to right, #fcb7b7, #fce1e4); }
+.l-cyan { background: linear-gradient(to right, #4facfe, #00f2fe); }
+.l-indigo { background: linear-gradient(to right, #a8c0ff, #3f2b96); }
+
+
+--------------------------------------------------------------------------
+
+.l-salmon { background: linear-gradient(to right, #ff9a9e, #fecfef); }
+.l-teal { background: linear-gradient(to right, #43cea2, #185a9d); }
+.l-amber { background: linear-gradient(to right, #f6d365, #fda085); }
+.l-purple { background: linear-gradient(to right, #a18cd1, #fbc2eb); }
+
+--------------------------------------------------------------------------
+
+@{
+    ViewData["Title"] = "Textual Statistics";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Metinsel İstatistikler
+                    <small class="text-muted">Genel Bilgi Kartları</small>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1-4 -->
+    <div class="row clearfix">
+
+        <!-- 1. En Çok Sipariş Gelen Ülke -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-globe" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Sipariş Gelen Ülke</div>
+                        <div class="number">@ViewBag.TopCountry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. En Çok Sipariş Gelen Şehir -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #11998e, #38ef7d);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-city" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Sipariş Gelen Şehir</div>
+                        <div class="number">@ViewBag.TopCity</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. En Yüksek Fiyatlı Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #F7971E, #FFD200);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-star" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Yüksek Fiyatlı Ürün</div>
+                        <div class="number">@ViewBag.MostExpensiveProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. En Düşük Fiyatlı Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #56CCF2, #2F80ED);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-balance-wallet" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Düşük Fiyatlı Ürün</div>
+                        <div class="number">@ViewBag.CheapestProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 5-8 -->
+    <div class="row clearfix">
+
+        <!-- 5. En Çok Satılan Kategori -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #43C6AC, #191654);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-chart" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Satış Yapan Kategori</div>
+                        <div class="number">@ViewBag.TopCategory</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. En Çok Stoklu Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #ff9966, #ff5e62);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-storage" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Yüksek Stoklu Ürün</div>
+                        <div class="number">@ViewBag.TopStockProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. En Popüler Ödeme Yöntemi -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #8E2DE2, #4A00E0);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-card" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Popüler Ödeme Yöntemi</div>
+                        <div class="number">@ViewBag.TopPaymentMethod</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. En Aktif Müşteri -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #00b09b, #96c93d);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-account-circle" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Aktif Müşteri</div>
+                        <div class="number">@ViewBag.TopCustomer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 9-12 -->
+    <div class="row clearfix">
+
+        <!-- 9. En Çok Sipariş Veren Ülke -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #ff6a00, #ee0979);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-flag" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Sipariş Veren Ülke</div>
+                        <div class="number">@ViewBag.TopOrderingCountry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. En Yeni Eklenen Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #373B44, #4286f4);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-time-restore" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">Son Eklenen Ürün</div>
+                        <div class="number">@ViewBag.LastAddedProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. En Çok Görüntülenen Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #00C9FF, #92FE9D);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-eye" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Görüntülenen Ürün</div>
+                        <div class="number">@ViewBag.TopViewedProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. En Çok Beğenilen Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #FF416C, #FF4B2B);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-thumb-up" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Beğenilen Ürün</div>
+                        <div class="number">@ViewBag.TopLikedProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 13-16 -->
+    <div class="row clearfix">
+
+        <!-- 13. En Çok İade Alan Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #11998e, #38ef7d);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-close-circle" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok İade Alan Ürün</div>
+                        <div class="number">@ViewBag.TopReturnedProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. En Az Stoklu Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #8E0E00, #1F1C18);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-alert-circle" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Az Stoklu Ürün</div>
+                        <div class="number">@ViewBag.LowestStockProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15. En Çok Sipariş Edilen Ürün -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #D1913C, #FFD194);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-shopping-cart" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Çok Sipariş Edilen Ürün</div>
+                        <div class="number">@ViewBag.TopOrderedProduct</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. En Aktif Kategori -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #DA4453, #89216B);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-layers" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center">
+                        <div class="text">En Aktif Kategori</div>
+                        <div class="number">@ViewBag.MostActiveCategory</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+--------------------------------------------------------------------------

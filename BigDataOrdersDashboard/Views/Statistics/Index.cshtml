@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    İstatistik Sayfası
+                    <small class="text-muted">Sipariş ve Diğer İstatistikler</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Ürünler</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Sipariş Listesi</a></li>
+                    <li class="breadcrumb-item active">Ana Sayfa</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+
+        <!-- 1. Kart - Usage -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-seagreen">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-trending-up" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Kategori Sayısı</div>
+                        <div class="number">@ViewBag.CategoryCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Kart - Impressions -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-parpl">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-eye" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Müşteri Sayısı</div>
+                        <div class="number">@ViewBag.CustomerCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Kart - Total Sales -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-blue">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-shopping-cart" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Ürün Sayısı</div>
+                        <div class="number">@ViewBag.ProductCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Kart - Currency -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-coral">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-balance" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Sipariş Sayısı</div>
+                        <div class="number">@ViewBag.OrderCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row clearfix">
+
+        <!-- 5. Kart - CUSTOMERS -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-amber">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-accounts" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Ülke Sayısı</div>
+                        <div class="number">@ViewBag.CustomerCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Kart - PRODUCTS -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-salmon">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-label" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Şehir Sayısı</div>
+                        <div class="number">@ViewBag.CustomerCity</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Kart - ORDERS -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #a18cd1, #fbc2eb);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-shopping-basket" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Tamamlanan Siparişler</div>
+                        <div class="number">@ViewBag.OrderStatusByCompleted</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Kart - SUPPORT TICKETS -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #f6d365, #fda085);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-headset-mic" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">İptal Edilen Siparişler</div>
+                        <div class="number">@ViewBag.OrderStatusByCancelled</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row clearfix">
+
+        <!-- 9. Kart - REVENUE -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-green">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-money" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Ekim Ayı Siparişleri</div>
+                        <div class="number">@ViewBag.OctoberOrders</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Kart - RETURNS -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2 l-pink">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-undo" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">2025 Yılı Siparişleri</div>
+                        <div class="number">@ViewBag.Orders2025Count</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. Kart - DELIVERED ORDERS -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #4facfe, #00f2fe);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-truck" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Ortalama Ürün Fiyatı / €</div>
+                        <div class="number">@ViewBag.AverageProductPrice.ToString("0.00") €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Kart - FEEDBACK -->
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card info-box-2" style="background: linear-gradient(to right, #a8c0ff, #3f2b96);">
+                <div class="body" style="padding:10px 0 8px 0;">
+                    <div class="icon" style="display:flex; align-items:center; justify-content:center; height:45px;">
+                        <i class="zmdi zmdi-thumb-up" style="font-size:34px; color:white;"></i>
+                    </div>
+                    <div class="content col-12 text-center" style="margin-top:2px;">
+                        <div class="text">Ortalama Ürün Stok Sayısı / Adet</div>
+                        <div class="number">@ViewBag.AverageProductQuantity.ToString("0.00")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</section>

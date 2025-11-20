@@ -1,0 +1,23 @@
+﻿SELECT 
+    SUM(o.Quantity * p.UnitPrice) AS TodaySales
+FROM Orders o
+INNER JOIN Products p ON o.ProductId = p.ProductId
+WHERE CAST(o.OrderDate AS DATE) = CAST(GETDATE() AS DATE);
+
+
+---------------------------------------------------
+
+
+var today = DateTime.Today;
+
+var todaySales = _context.Orders
+    .Where(o => o.OrderDate >= today && o.OrderDate < today.AddDays(1))
+    .Join(_context.Products,
+          order => order.ProductId,
+          product => product.ProductId,
+          (order, product) => new { order.Quantity, product.UnitPrice })
+    .Sum(x => x.Quantity * x.UnitPrice);
+
+ViewBag.TodaySales = Math.Round(todaySales, 2);
+
+---------------------------------------------------

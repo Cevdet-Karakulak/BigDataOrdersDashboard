@@ -1,0 +1,136 @@
+﻿<div class="col-lg-9 col-md-8">
+    <div class="card product-report">
+        <div class="header">
+            <h2>Sipariş Rapor Grafiği <small>Bugünkü Tamamlanan / İptal Edilen ve Kargodaki Sipariş Tutarları</small></h2>
+        </div>
+        <div class="body">
+            <div class="row clearfix m-b-15">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="icon l-amber"><i class="zmdi zmdi-chart-donut"></i></div>
+                    <div class="col-in">
+                        <h4 class="counter m-b-0">@ViewBag.TodaySales €</h4>
+                        <small class="text-muted m-t-0">Tamamlanan Satışlar</small>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="icon l-turquoise"><i class="zmdi zmdi-chart"></i></div>
+                    <div class="col-in">
+                        <h4 class="counter m-b-0">@ViewBag.TodaySalesPreparing €</h4>
+                        <small class="text-muted m-t-0">Hazırlanan Sipariş Tutarı</small>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="icon l-parpl"><i class="zmdi zmdi-card"></i></div>
+                    <div class="col-in">
+                        <h4 class="counter m-b-0">@ViewBag.TodaySalesShipped €</h4>
+                        <small class="text-muted m-t-0">Kargodaki Sipariş Tutarı</small>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="body">
+                    <h4>Son 6 Aylık Satış Durumları</h4>
+                    <canvas id="salesStatusChart"></canvas>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                // Backend'den gelen veriyi al
+                var salesData = @Html.Raw(ViewBag.MonthlySalesJson);
+
+                // Benzersiz ay listesi oluştur
+                const months = [...new Set(salesData.map(x => x.Ay))];
+
+                // Her durum için ay bazlı veriyi çıkar
+                const tamamlanan = months.map(m => {
+                  const rec = salesData.find(x => x.Ay === m && x.Durum === "Tamamlandı");
+                  return rec ? rec.SatisAdedi : 0;
+                });
+
+                const iptal = months.map(m => {
+                  const rec = salesData.find(x => x.Ay === m && x.Durum === "İptal Edildi");
+                  return rec ? rec.SatisAdedi : 0;
+                });
+
+                const kargoda = months.map(m => {
+                  const rec = salesData.find(x => x.Ay === m && x.Durum === "Kargoda");
+                  return rec ? rec.SatisAdedi : 0;
+                });
+
+                const ctx = document.getElementById('salesStatusChart').getContext('2d');
+
+                new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                    labels: months,
+                    datasets: [
+                      {
+                        label: 'Tamamlanan Satışlar',
+                        data: tamamlanan,
+                        fill: true,
+                        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                        borderColor: 'rgba(76, 175, 80, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        tension: 0.4
+                      },
+                      {
+                        label: 'İptal Edilen Satışlar',
+                        data: iptal,
+                        fill: true,
+                        backgroundColor: 'rgba(244, 67, 54, 0.2)',
+                        borderColor: 'rgba(244, 67, 54, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        tension: 0.4
+                      },
+                      {
+                        label: 'Kargodaki Satışlar',
+                        data: kargoda,
+                        fill: true,
+                        backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                        borderColor: 'rgba(255, 193, 7, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        tension: 0.4
+                      }
+                    ]
+                  },
+                  options: {
+                    responsive: true,
+                    plugins: {
+                      legend: {
+                        position: 'top',
+                        labels: { color: '#333', usePointStyle: true }
+                      },
+                      tooltip: {
+                        callbacks: {
+                          label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} adet`
+                        }
+                      }
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                        ticks: { color: '#666' },
+                        grid: { color: '#eee' }
+                      },
+                      x: {
+                        ticks: { color: '#666' },
+                        grid: { display: false }
+                      }
+                    }
+                  }
+                });
+            </script>
+
+
+            
+        </div>
+    </div>
+</div>
+
+

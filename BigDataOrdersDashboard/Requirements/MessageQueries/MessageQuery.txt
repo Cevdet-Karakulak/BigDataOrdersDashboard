@@ -1,0 +1,15 @@
+﻿CREATE TABLE Messages (
+    MessageId INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerId INT NOT NULL,
+    MessageSubject NVARCHAR(100) NOT NULL,
+    MessageText NVARCHAR(MAX) NOT NULL,
+    SentimentLabel NVARCHAR(20) NOT NULL, -- positive / neutral / negative
+    CreatedDate DATETIME NOT NULL DEFAULT GETDATE(),
+
+    CONSTRAINT FK_Messages_Customers FOREIGN KEY (CustomerId)
+        REFERENCES Customers(CustomerId)
+);
+
+
+---------------------------------
+

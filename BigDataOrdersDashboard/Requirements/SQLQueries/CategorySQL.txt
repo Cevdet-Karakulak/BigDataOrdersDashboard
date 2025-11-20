@@ -1,0 +1,60 @@
+﻿CREATE TABLE Categories (
+    CategoryId INT IDENTITY(1,1) PRIMARY KEY,
+    CategoryName NVARCHAR(100)
+);
+
+INSERT INTO Categories (CategoryName) VALUES
+('Gıda'),
+('İçecekler'),
+('Teknoloji & Elektronik'),
+('Moda & Giyim'),
+('Ev & Dekorasyon'),
+('Kozmetik & Kişisel Bakım'),
+('Otomotiv & Aksesuar'),
+('Spor & Outdoor'),
+('Evcil Hayvan Ürünleri'),
+('Kahve & Pastane Ürünleri'),
+('Kırtasiye & Ofis Ürünleri'),
+('Oyuncak & Hobi'),
+('Bahçe & Yapı Ürünleri')
+
+
+------------------------------------------------------------------
+
+CREATE TABLE OrdersAll (
+    OrderId INT,
+    ProductId INT,
+    CustomerId INT,
+    Quantity INT,
+    PaymentMethod NVARCHAR(50),
+    OrderStatus NVARCHAR(50),
+    OrderDate DATETIME,
+    OrderNotes NVARCHAR(250)
+);
+
+------------------------------------------------------------------
+
+INSERT INTO OrdersAll
+SELECT * FROM Orders1
+UNION ALL
+SELECT * FROM Orders2
+UNION ALL
+SELECT * FROM Orders3
+UNION ALL
+SELECT * FROM Orders4
+UNION ALL
+SELECT * FROM Orders5;
+
+------------------------------------------------------------------
+
+INSERT INTO Products (ProductName, ProductDescription, UnitPrice, StockQuantity, CategoryId, CountryOfOrigin, ProductImageUrl) VALUES
+(N'Tam Tahıllı Makarna', N'Sağlıklı, yüksek lif oranına sahip tam tahıllı makarna.', 42.90, 400, 1, N'İtalya', N'test'),
+(N'Gazlı İçecek Portakallı', N'Ferahlatıcı portakal aromalı gazlı içecek.', 18.50, 600, 2, N'Almanya', N'test'),
+(N'Masa Lambası', N'LED ampullü, ayarlanabilir modern masa lambası.', 259.00, 150, 5, N'Hollanda', N'test'),
+(N'Kadın Deri Cüzdan', N'Yüksek kaliteli hakiki deriden üretilmiş şık cüzdan.', 389.00, 220, 4, N'İspanya', N'test'),
+(N'Bluetooth Hoparlör', N'Su geçirmez taşınabilir Bluetooth hoparlör.', 549.00, 320, 3, N'Fransa', N'test'),
+(N'Saç Kurutma Makinesi', N'Yüksek güçlü, iyon teknolojili saç kurutma makinesi.', 299.00, 180, 6, N'Belçika', N'test'),
+(N'Spor Sırt Çantası', N'Hafif, su geçirmez, çok bölmeli sırt çantası.', 229.00, 270, 8, N'Avusturya', N'test'),
+(N'Bahçe Sulama Hortumu', N'Dayanıklı, esnek, 25 metrelik bahçe sulama hortumu.', 199.00, 130, 13, N'Polonya', N'test');
+
+------------------------------------------------------------------

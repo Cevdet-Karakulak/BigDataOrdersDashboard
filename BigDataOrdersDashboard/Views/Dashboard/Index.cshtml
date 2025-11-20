@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+
+    @await Component.InvokeAsync("_DashboardBlockHeaderComponentPartial")
+
+    <div class="container-fluid">
+
+        @await Component.InvokeAsync("_DashboardFirstChartsComponentPartial")
+    
+        <br />
+    
+        <div class="row clearfix">
+        
+            @await Component.InvokeAsync("_DashboardMainChartComponentPartial")
+          
+            @await Component.InvokeAsync("_DashboardKpiComponentPartial")        
+         
+        </div>
+
+        @await Component.InvokeAsync("_DashboardSubStatisticsComponentPartial")
+
+        @await Component.InvokeAsync("_DashboardMapComponentPartial")    
+
+        <br />
+
+        <div class="row clearfix">
+
+            @await Component.InvokeAsync("_DashboardLast5ReviewsComponentPartial")
+       
+            @await Component.InvokeAsync("_DashboardLowStockProductsComponentPartial")
+        
+            @await Component.InvokeAsync("_DashboardCountryStatisticsComponentPartial")
+          
+        </div>
+      
+        @await Component.InvokeAsync("_DashboardTodayOrdersComponentPartial")
+
+    </div>
+
+</section>

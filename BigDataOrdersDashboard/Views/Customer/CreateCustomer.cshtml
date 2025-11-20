@@ -1,0 +1,71 @@
+﻿@model Customer
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Yeni Müşteri Ekleme Sayfası
+                    <small class="text-muted">Müşteri İşlemleri</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Müşteriler</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Müşteri Listesi</a></li>
+                    <li class="breadcrumb-item active">Ana Sayfa</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+
+                        <form method="post">
+                            <label>Müşteri Adı</label>
+                            <input type="text" asp-for="CustomerName" class="form-control" />
+                            <br />
+                            <label>Müşteri Soyadı</label>
+                            <input type="text" asp-for="CustomerSurname" class="form-control" />
+                            <br />
+                            <label>Email Adresi</label>
+                            <input type="email" asp-for="CustomerEmail" class="form-control" />
+                            <br />
+                            <label>Müşteri Telefon</label>
+                            <input type="tel" asp-for="CustomerPhone" class="form-control" />
+                            <br />   
+                            <label>Görsel URL</label>
+                            <input type="text" asp-for="CustomerImageUrl" class="form-control" />
+                            <br />
+                            <label>Ülke Bilgisi</label>
+                            <input type="text" asp-for="CustomerCountry" class="form-control" />
+                            <br />
+                            <label>Şehir</label>
+                            <input type="text" asp-for="CustomerCity" class="form-control" />
+                            <br />
+                            <label>Bölge / İlçe</label>
+                            <input type="text" asp-for="CustomerDistrict" class="form-control" />
+                            <br />
+                            <label>Adres</label>
+                            <input type="text" asp-for="CustomerAddress" class="form-control" />
+                            <br />
+
+                            <button class="btn btn-info">Müşteriyi Oluştur</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

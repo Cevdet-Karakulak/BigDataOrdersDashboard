@@ -1,0 +1,167 @@
+﻿SELECT 
+    FORMAT(OrderDate, 'yyyy-MM') AS Ay,
+    OrderStatus,
+    COUNT(*) AS SatisAdedi
+FROM Orders
+WHERE OrderDate >= DATEADD(MONTH, -6, GETDATE())
+GROUP BY FORMAT(OrderDate, 'yyyy-MM'), OrderStatus
+ORDER BY Ay;
+
+
+----------------------------------------------------
+
+var sixMonthsAgo = DateTime.Today.AddMonths(-6);
+
+var monthlySales = _context.Orders
+    .Where(o => o.OrderDate >= sixMonthsAgo)
+    .GroupBy(o => new { 
+        Year = o.OrderDate.Year, 
+        Month = o.OrderDate.Month, 
+        o.OrderStatus 
+    })
+    .Select(g => new
+    {
+        Ay = $"{g.Key.Year}-{g.Key.Month:D2}",
+        Durum = g.Key.OrderStatus,
+        SatisAdedi = g.Count()
+    })
+    .OrderBy(x => x.Ay)
+    .ToList();
+
+// 📦 ViewBag'e JSON olarak taşı
+ViewBag.MonthlySalesJson = System.Text.Json.JsonSerializer.Serialize(monthlySales);
+
+----------------------------------------------------
+
+<div class="card">
+  <div class="body">
+    <h4>Son 6 Aylık Satış Durumları</h4>
+    <canvas id="salesStatusChart"></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Backend'den gelen veriyi al
+  var salesData = @Html.Raw(ViewBag.MonthlySalesJson);
+
+  // Benzersiz ay listesi oluştur
+  const months = [...new Set(salesData.map(x => x.Ay))];
+
+  // Her durum için ay bazlı veriyi çıkar
+  const tamamlanan = months.map(m => {
+    const rec = salesData.find(x => x.Ay === m && x.Durum === "Tamamlandı");
+    return rec ? rec.SatisAdedi : 0;
+  });
+
+  const iptal = months.map(m => {
+    const rec = salesData.find(x => x.Ay === m && x.Durum === "İptal Edildi");
+    return rec ? rec.SatisAdedi : 0;
+  });
+
+  const kargoda = months.map(m => {
+    const rec = salesData.find(x => x.Ay === m && x.Durum === "Kargoda");
+    return rec ? rec.SatisAdedi : 0;
+  });
+
+  const ctx = document.getElementById('salesStatusChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Tamamlanan Satışlar',
+          data: tamamlanan,
+          fill: true,
+          backgroundColor: 'rgba(76, 175, 80, 0.2)',
+          borderColor: 'rgba(76, 175, 80, 1)',
+          borderWidth: 2,
+          pointBackgroundColor: '#fff',
+          tension: 0.4
+        },
+        {
+          label: 'İptal Edilen Satışlar',
+          data: iptal,
+          fill: true,
+          backgroundColor: 'rgba(244, 67, 54, 0.2)',
+          borderColor: 'rgba(244, 67, 54, 1)',
+          borderWidth: 2,
+          pointBackgroundColor: '#fff',
+          tension: 0.4
+        },
+        {
+          label: 'Kargodaki Satışlar',
+          data: kargoda,
+          fill: true,
+          backgroundColor: 'rgba(255, 193, 7, 0.2)',
+          borderColor: 'rgba(255, 193, 7, 1)',
+          borderWidth: 2,
+          pointBackgroundColor: '#fff',
+          tension: 0.4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: '#333', usePointStyle: true }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} adet`
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { color: '#666' },
+          grid: { color: '#eee' }
+        },
+        x: {
+          ticks: { color: '#666' },
+          grid: { display: false }
+        }
+      }
+    }
+  });
+</script>
+
+
+----------------------------------------------------
+
+
+var sixMonthsAgo = DateTime.Today.AddMonths(-6);
+
+var monthlySalesRaw = _context.Orders
+    .Where(o => o.OrderDate >= sixMonthsAgo)
+    .GroupBy(o => new { 
+        o.OrderDate.Year, 
+        o.OrderDate.Month, 
+        o.OrderStatus 
+    })
+    .Select(g => new
+    {
+        Year = g.Key.Year,
+        Month = g.Key.Month,
+        Durum = g.Key.OrderStatus,
+        SatisAdedi = g.Count()
+    })
+    .OrderBy(x => x.Year)
+    .ThenBy(x => x.Month)
+    .ToList(); // ⬅ verileri burada çekiyoruz
+
+// ⬇ Formatlama işlemi artık C# tarafında
+var monthlySales = monthlySalesRaw.Select(x => new
+{
+    Ay = $"{x.Year}-{x.Month:D2}",
+    x.Durum,
+    x.SatisAdedi
+}).ToList();
+
+// ViewBag'e JSON olarak taşı
+ViewBag.MonthlySalesJson = System.Text.Json.JsonSerializer.Serialize(monthlySales);

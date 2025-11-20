@@ -1,0 +1,52 @@
+﻿@model dynamic
+
+<div class="card">
+    <div class="header">
+        <h2>Müşteri Sipariş Kategorileri</h2>
+    </div>
+    <div class="body">
+
+        <div class="row">
+            @foreach (var cat in Model.Take(3))
+            {
+                var colorClass = cat == Model.First() ? "text-success" :
+                                 cat == Model.Skip(1).First() ? "text-danger" : "text-success";
+
+                <div class="col-sm-4 col-4 m-b-10">
+                    <span class="text-muted">@cat.Category</span>
+                    <h5 class="m-b-0">@cat.Total.ToString("N0") 
+                        <small class="text-muted">
+                            <i class="zmdi @(colorClass == "text-success" ? "zmdi-caret-up" : "zmdi-caret-down") @colorClass"></i> 
+                            @(new Random().Next(3, 20))%
+                        </small>
+                    </h5>
+                </div>
+            }
+        </div>
+
+        <div id="categoryChart"></div>
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script>
+            var options = {
+                chart: { type: 'line', height: 350 },
+                stroke: { width: 3, curve: 'smooth' },
+                series: [
+                    @foreach (var item in Model)
+                    {
+                        <text>{
+                            name: '@item.Category',
+                            data: [@string.Join(",", item.YearlyData.Select(x => x.Count))]
+                        },</text>
+                    }
+                ],
+                xaxis: {
+                    categories: [@string.Join(",", Model.First().YearlyData.Select(x => $"'{x.Year}'"))]
+                },
+                tooltip: { shared: true, intersect: false }
+            };
+            var chart = new ApexCharts(document.querySelector("#categoryChart"), options);
+            chart.render();
+        </script>
+    </div>
+</div>

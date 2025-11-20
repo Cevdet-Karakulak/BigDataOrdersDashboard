@@ -1,0 +1,114 @@
+﻿@model List<OrderStatusChartDto>
+
+@{
+    ViewData["Title"] = "Genel Durum Kartları";
+}
+
+<style>
+    .circle-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        text-align: center;
+        padding: 25px 15px;
+        transition: transform .2s ease-in-out;
+    }
+
+        .circle-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .progress-circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 15px auto;
+    }
+
+        .progress-circle svg {
+            transform: rotate(-90deg);
+            width: 100px;
+            height: 100px;
+        }
+
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+        }
+
+        .progress-circle .bg {
+            stroke: #e6e6e6;
+        }
+
+        .progress-circle .progress {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+    .circle-value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-title {
+        font-weight: 600;
+        font-size: 16px;
+        margin-top: 8px;
+        color: #444;
+    }
+
+    .card-sub {
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .positive {
+        color: green;
+    }
+
+    .negative {
+        color: red;
+    }
+</style>
+
+<div class="row clearfix">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <div class="circle-card">
+                <div class="progress-circle" data-value="@item.Percentage" data-color="@item.Color">
+                    <svg>
+                        <circle class="bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="circle-value">@item.Percentage%</div>
+                </div>
+                <div class="card-title">@item.Title</div>
+                <div class="card-sub @(item.IsPositive ? "positive" : "negative")">
+                    @item.ChangeText
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    document.querySelectorAll('.progress-circle').forEach(el => {
+        const value = el.getAttribute('data-value');
+        const color = el.getAttribute('data-color');
+        const circle = el.querySelector('.progress');
+        const radius = 45;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference - (value / 100) * circumference;
+
+        circle.style.stroke = color;
+        circle.style.strokeDashoffset = offset;
+    });
+</script>

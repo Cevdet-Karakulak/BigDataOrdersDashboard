@@ -1,0 +1,132 @@
+﻿SELECT TOP 1 
+    p.ProductName,
+    SUM(o.Quantity) AS TotalQuantity
+FROM Orders o
+INNER JOIN Products p ON o.ProductId = p.ProductId
+GROUP BY p.ProductName
+ORDER BY TotalQuantity DESC;
+
+------------------------------------------------------------------
+
+SELECT TOP 1 
+    c.CustomerCountry,
+    COUNT(o.OrderId) AS TotalOrders
+FROM Orders o
+INNER JOIN Customers c ON o.CustomerId = c.CustomerId
+GROUP BY c.CustomerCountry
+ORDER BY TotalOrders DESC;
+
+------------------------------------------------------------------
+
+var mostOrderedCountry = _context.Orders
+    .GroupBy(o => o.Customer.CustomerCountry)
+    .Select(g => new
+    {
+        Country = g.Key,
+        TotalOrders = g.Count()
+    })
+    .OrderByDescending(x => x.TotalOrders)
+    .Select(x => x.Country)
+    .FirstOrDefault();
+
+
+------------------------------------------------------------------
+
+SELECT TOP 1 
+    c.CustomerCity,
+    COUNT(o.OrderId) AS TotalOrders
+FROM Orders o
+INNER JOIN Customers c ON o.CustomerId = c.CustomerId
+GROUP BY c.CustomerCity
+ORDER BY TotalOrders DESC;
+
+
+------------------------------------------------------------------
+
+var mostOrderedCity = _context.Orders
+    .GroupBy(o => o.Customer.CustomerCity)
+    .Select(g => new
+    {
+        City = g.Key,
+        TotalOrders = g.Count()
+    })
+    .OrderByDescending(x => x.TotalOrders)
+    .Select(x => x.City)
+    .FirstOrDefault();
+
+
+------------------------------------------------------------------
+
+SELECT TOP 1 
+    c.CategoryName,
+    SUM(o.Quantity) AS TotalSales
+FROM Orders o
+INNER JOIN Products p ON o.ProductId = p.ProductId
+INNER JOIN Categories c ON p.CategoryId = c.CategoryId
+GROUP BY c.CategoryName
+ORDER BY TotalSales DESC;
+
+------------------------------------------------------------------
+
+var topCategory = _context.Orders
+    .GroupBy(o => o.Product.Category.CategoryName)
+    .Select(g => new
+    {
+        CategoryName = g.Key,
+        TotalSales = g.Sum(x => x.Quantity)
+    })
+    .OrderByDescending(x => x.TotalSales)
+    .Select(x => x.CategoryName)
+    .FirstOrDefault();
+
+    ------------------------------------------------------------------
+
+SELECT TOP 10
+    c.CustomerName,
+    c.CustomerSurname,
+    COUNT(o.OrderId) AS TotalOrders
+FROM Orders o
+INNER JOIN Customers c ON o.CustomerId = c.CustomerId
+GROUP BY c.CustomerName, c.CustomerSurname
+ORDER BY TotalOrders DESC;
+
+------------------------------------------------------------------
+
+var mostActiveCustomer = _context.Orders
+    .GroupBy(o => new { o.Customer.CustomerName, o.Customer.CustomerSurname })
+    .Select(g => new
+    {
+        FullName = g.Key.CustomerName + " " + g.Key.CustomerSurname,
+        TotalOrders = g.Count()
+    })
+    .OrderByDescending(x => x.TotalOrders)
+    .Select(x => x.FullName)
+    .FirstOrDefault();
+
+------------------------------------------------------------------
+SELECT TOP 10 
+    p.ProductName,
+    COUNT(o.OrderId) AS CompletedOrders
+FROM Orders o
+INNER JOIN Products p ON o.ProductId = p.ProductId
+WHERE o.OrderStatus = 'Tamamlandı'
+GROUP BY p.ProductName
+ORDER BY CompletedOrders DESC;
+
+
+------------------------------------------------------------------
+
+var mostCompletedProduct = _context.Orders
+    .Where(o => o.OrderStatus == "Tamamlandı")
+    .GroupBy(o => o.Product.ProductName)
+    .Select(g => new
+    {
+        ProductName = g.Key,
+        CompletedOrders = g.Count()
+    })
+    .OrderByDescending(x => x.CompletedOrders)
+    .Select(x => x.ProductName)
+    .FirstOrDefault();
+
+
+------------------------------------------------------------------

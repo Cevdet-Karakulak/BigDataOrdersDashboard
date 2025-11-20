@@ -1,0 +1,87 @@
+﻿<div class="row clearfix">
+
+    <!-- 1. Müşteri Profili -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                <h2>👤 Müşteri Profili</h2>
+            </div>
+            <div class="body">
+                @Html.Raw(ViewBag.AnalysisSection1)
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Ürün Tercihleri -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                <h2>🛍️ Ürün Tercihleri</h2>
+            </div>
+            <div class="body">
+                @Html.Raw(ViewBag.AnalysisSection2)
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Zaman Bazlı Alışveriş -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                <h2>⏰ Zaman Bazlı Alışveriş Davranışı</h2>
+            </div>
+            <div class="body">
+                @Html.Raw(ViewBag.AnalysisSection3)
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Ortalama Harcama ve Sıklık -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                <h2>💰 Ortalama Harcama & Sıklık</h2>
+            </div>
+            <div class="body">
+                @Html.Raw(ViewBag.AnalysisSection4)
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Sadakat & Tekrar Harcama -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                <h2>🎯 Sadakat & Tekrar Alışveriş</h2>
+            </div>
+            <div class="body">
+                @Html.Raw(ViewBag.AnalysisSection5)
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Pazarlama Önerileri -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="header">
+                <h2>🚀 Pazarlama Önerileri</h2>
+            </div>
+            <div class="body">
+                @Html.Raw(ViewBag.AnalysisSection6)
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+-------------------------------------------------------------
+
+ string[] sections = completion.Split("<h4>");
+
+            ViewBag.AnalysisSection1 = "<h4>" + sections.ElementAtOrDefault(1);
+            ViewBag.AnalysisSection2 = "<h4>" + sections.ElementAtOrDefault(2);
+            ViewBag.AnalysisSection3 = "<h4>" + sections.ElementAtOrDefault(3);
+            ViewBag.AnalysisSection4 = "<h4>" + sections.ElementAtOrDefault(4);
+            ViewBag.AnalysisSection5 = "<h4>" + sections.ElementAtOrDefault(5);
+            ViewBag.AnalysisSection6 = "<h4>" + sections.ElementAtOrDefault(6);

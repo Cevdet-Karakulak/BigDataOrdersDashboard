@@ -1,0 +1,19 @@
+﻿ <select asp-for="PaymentMethod" class="form-control show-tick">
+        <option value="">-- Ödeme Yöntemi Seçiniz --</option>
+        <option value="Kredi Kartı">Kredi Kartı</option>
+        <option value="Google Pay">Google Pay</option>
+        <option value="Banka Kartı">Banka Kartı</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Havale/Eft">Havale/Eft</option>
+    </select>
+
+--------------------------------------------------------------------------
+
+     <select asp-for="OrderStatus" class="form-control show-tick" required>
+        <option value="">-- Sipariş Durumu Seçiniz --</option>
+        <option value="İptal Edildi">İptal Edildi</option>
+        <option value="Tamamlandı">Tamamlandı</option>
+        <option value="Hazırlanıyor">Hazırlanıyor</option>
+        <option value="Kargoda">Kargoda</option>
+        <option value="Beklemede">Beklemede</option>
+    </select>

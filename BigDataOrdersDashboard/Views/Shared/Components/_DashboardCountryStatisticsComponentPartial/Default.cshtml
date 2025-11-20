@@ -1,0 +1,99 @@
+﻿@model List<CountryOrderDto>
+
+
+<div class="col-lg-4 col-md-6 col-sm-12">
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Ülkelere Göre Siparişler</h2>
+        </div>
+
+        <div class="card-body text-center" style="position: relative; height: 240px;">
+            <canvas id="countryOrdersChart" style="max-height: 220px;"></canvas>
+            <div id="chartCenterText"
+                 style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
+                font-size:22px; font-weight:700; color:#222;"></div>
+        </div>
+
+        <table class="table mt-2 mb-3">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ülke</th>
+                    <th>Sipariş Sayısı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@Model[i].Country</td>
+                        <td>@Model[i].OrderCount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('countryOrdersChart');
+            const centerText = document.getElementById('chartCenterText');
+
+            const labels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Select(x => x.Country)));
+            const values = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Select(x => x.OrderCount)));
+            const percentages = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Select(x => x.Percentage)));
+
+            const chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: ['#4CAF50', '#2196F3', '#FF9800', '#E91E63', '#9C27B0'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.label}: ${context.parsed} sipariş (${percentages[context.dataIndex]}%)`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%',
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    // 👇 Burada yeni ekleme:
+                    onHover: function (event, activeElements) {
+                        if (activeElements.length > 0) {
+                            const i = activeElements[0].index;
+                            centerText.innerHTML = `${labels[i]}<br><span style="font-size:16px; color:#777;">${percentages[i]}%</span>`;
+                        }
+                    },
+                    // 👇 Hover dışına çıkınca geri dönmesi için
+                    onLeave: function () {
+                        const maxValue = Math.max(...values);
+                        const maxIndex = values.indexOf(maxValue);
+                        centerText.innerHTML = `${labels[maxIndex]}<br><span style="font-size:16px; color:#777;">${percentages[maxIndex]}%</span>`;
+                    }
+                }
+            });
+
+            // Varsayılan merkez metni (en yüksek ülke)
+            const maxValue = Math.max(...values);
+            const maxIndex = values.indexOf(maxValue);
+            centerText.innerHTML = `${labels[maxIndex]}<br><span style="font-size:16px; color:#777;">${percentages[maxIndex]}%</span>`;
+        });
+    </script>
+
+
+
+</div>

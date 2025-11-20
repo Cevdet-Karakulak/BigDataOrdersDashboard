@@ -1,0 +1,52 @@
+﻿<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card info-box-2 l-seagreen">
+        <div class="body d-flex align-items-center">
+            <div class="icon col-12 text-center">
+                <i class="zmdi zmdi-trending-up" style="font-size: 48px; color: white;"></i>
+            </div>
+            <div class="content col-12 text-center">
+                <div class="text">USAGE</div>
+                <div class="number">98%</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+--------------------------------------------------------------------------
+
+<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card info-box-2 l-seagreen">
+        <div class="body text-center p-3">
+            <div class="icon mb-2">
+                <i class="zmdi zmdi-trending-up" style="font-size: 48px; color: white;"></i>
+            </div>
+            <div class="content">
+                <div class="text" style="color: white; font-size: 16px; font-weight: 500;">USAGE</div>
+                <div class="number" style="color: white; font-size: 22px; font-weight: 700;">98%</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+--------------------------------------------------------------------------
+
+<div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="card info-box-2 l-seagreen text-center" style="border-radius:15px; background:linear-gradient(135deg, #8ee7d0, #7ae2b5); box-shadow:0 3px 12px rgba(0,0,0,0.15);">
+        <div class="body d-flex flex-column justify-content-center align-items-center" style="height:180px;">
+            
+            <div class="icon mb-3">
+                <i class="zmdi zmdi-chart" style="font-size:56px; color:rgba(255,255,255,0.9);"></i>
+            </div>
+            
+            <div class="content">
+                <div class="text" style="color:rgba(255,255,255,0.9); font-size:16px; letter-spacing:1px;">USAGE</div>
+                <div class="number" style="color:#fff; font-size:28px; font-weight:700;">98%</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+--------------------------------------------------------------------------
+
+

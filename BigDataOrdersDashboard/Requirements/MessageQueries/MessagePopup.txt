@@ -1,0 +1,132 @@
+﻿public IActionResult GetMessageDetail(int id)
+{
+    var message = _context.Messages
+        .Include(x => x.Customer)
+        .FirstOrDefault(x => x.MessageId == id);
+
+    if (message == null)
+        return Json(new { success = false });
+
+    return Json(new {
+        success = true,
+        messageId = message.MessageId,
+        sender = $"{message.Customer.CustomerName} {message.Customer.CustomerSurname}",
+        subject = message.MessageSubject,
+        content = message.MessageContent,
+        date = message.CreatedDate.ToString("dd MMM yyyy HH:mm"),
+        sentiment = message.SentimentLabel
+    });
+}
+
+-----------------------------------------------------------
+
+ <button class="btn btn-warning btn-sm openMessageBtn" data-id="@item.MessageId">
+        Mesajı Aç
+    </button>
+
+-----------------------------------------------------------
+
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">
+          <i class="zmdi zmdi-email-open"></i> Mesaj Detayı
+        </h5>
+        <button type="button" class="close text-white" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5 id="msgSubject" class="font-weight-bold"></h5>
+        <p class="text-muted mb-2">
+            <i class="zmdi zmdi-account"></i> <span id="msgSender"></span> |
+            <i class="zmdi zmdi-time"></i> <span id="msgDate"></span> |
+            <i class="zmdi zmdi-info-outline"></i> <span id="msgSentiment"></span>
+        </p>
+        <hr>
+        <p id="msgContent" style="font-size: 15px;"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+-----------------------------------------------------------
+
+
+<script>
+$(document).on("click", ".openMessageBtn", function () {
+    var id = $(this).data("id");
+
+    $.ajax({
+        url: "/Message/GetMessageDetail",
+        data: { id: id },
+        success: function (res) {
+            if (!res.success) return;
+
+            $("#msgSubject").text(res.subject);
+            $("#msgSender").text(res.sender);
+            $("#msgContent").text(res.content);
+            $("#msgDate").text(res.date);
+            $("#msgSentiment").text(res.sentiment);
+
+            $("#messageModal").modal("show");
+        }
+    });
+});
+</script>
+
+-----------------------------------------------------------
+
+<script>
+$(document).on("click", ".openMessageBtn", function () {
+    var id = $(this).data("id");
+
+    $.ajax({
+        url: "/Message/GetMessageDetail",
+        data: { id: id },
+        success: function (res) {
+            if (!res.success) return;
+
+            $("#msgSubject").text(res.subject);
+            $("#msgSender").text(res.sender);
+            $("#msgContent").text(res.content);
+            $("#msgDate").text(res.date);
+            $("#msgSentiment").text(res.sentiment);
+
+            $("#messageModal").modal("show");
+        }
+    });
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+-----------------------------------------------------------
+
+<script>
+$(document).on("click", ".openMessageBtn", function () {
+    var id = $(this).data("id");
+
+    $.ajax({
+        url: "/Message/GetMessageDetail",
+        data: { id: id },
+        success: function (res) {
+            if (!res.success) return;
+
+            $("#msgSubject").text(res.subject);
+            $("#msgSender").text(res.sender);
+            $("#msgContent").text(res.content);
+            $("#msgDate").text(res.date);
+            $("#msgSentiment").text(res.sentiment);
+
+            $("#messageModal").modal("show");
+        }
+    });
+});
+</script>

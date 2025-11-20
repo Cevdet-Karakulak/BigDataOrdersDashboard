@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigDataOrdersDashboard", "BigDataOrdersDashboard\BigDataOrdersDashboard.csproj", "{2D26ABBF-9A81-47E1-9572-C00258571574}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D26ABBF-9A81-47E1-9572-C00258571574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D26ABBF-9A81-47E1-9572-C00258571574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D26ABBF-9A81-47E1-9572-C00258571574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D26ABBF-9A81-47E1-9572-C00258571574}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92D8C170-6273-47AC-8DE7-42BF5F6A0AF6}
+	EndGlobalSection
+EndGlobal
