@@ -13,8 +13,12 @@ namespace BigDataOrdersDashboard.ViewComponents.DashboardViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            //var values = _context.Reviews.OrderByDescending(x => x.ReviewId).Include(y => y.Customer).Include(z => z.Product).Take(5).ToList();
-            return View(/*values*/);
+            var values = _context.Reviews
+                .OrderByDescending(x => x.ReviewDate)   
+                .Include(y => y.Customer)
+                .Include(z => z.Product)
+                .Take(5)
+                .ToList(); return View(values);
         }
     }
 }

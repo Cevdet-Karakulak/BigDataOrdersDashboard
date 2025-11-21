@@ -1,0 +1,67 @@
+﻿@model Review
+
+@{
+    ViewData["Title"] = "UpdateReview";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Yeni Değerlendirme Ekleme Sayfası
+                    <small class="text-muted">Ürün Yorum & Değerlendirme İşlemleri</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Değerlendirmeler</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Kullanıcı Listesi</a></li>
+                    <li class="breadcrumb-item active">Ana Sayfa</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+
+                        <form method="post">
+                            <input type="hidden" asp-for="ReviewId" />
+                            <label>Müşteri Id</label>
+                            <input type="text" asp-for="CustomerId" class="form-control" />
+                            <br />
+                            <label>Ürün Id</label>
+                            <input type="text" asp-for="ProductId" class="form-control" />
+                            <br />
+                            <label>Satın Alma Türü</label>
+                            <input type="text" asp-for="PurchaseType" class="form-control" />
+                            <br />
+                            <label>Skor</label>
+                            <input type="text" asp-for="Rating" class="form-control" />
+                            <br />
+                            <label>Değerlendirme</label>
+                            <input type="text" asp-for="ReviewText" class="form-control" />
+                            <br />
+                            <label>Duygu Analizi</label>
+                            <input type="text" asp-for="Sentiment" class="form-control" />
+                            <br />
+
+
+                            <button class="btn btn-success">Değerlendirmeyi Güncelle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

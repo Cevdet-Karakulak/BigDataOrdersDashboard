@@ -1,50 +1,141 @@
-﻿<div class="row clearfix">
-    <div class="col-lg-12">
-        <div class="card">
-            <ul class="row profile_state list-unstyled">
-                <li class="col-lg-2 col-md-4 col-6">
-                    <div class="body">
-                        <i class="zmdi zmdi-camera col-amber"></i>
-                        <h4>@ViewBag.CategoryCount</h4>
-                        <span>Kategori Sayısı</span>
-                    </div>
-                </li>
-                <li class="col-lg-2 col-md-4 col-6">
-                    <div class="body">
-                        <i class="zmdi zmdi-thumb-up col-blue"></i>
-                        <h4>@ViewBag.ProductCount</h4>
-                        <span>Ürün Sayısı</span>
-                    </div>
-                </li>
-                <li class="col-lg-2 col-md-4 col-6">
-                    <div class="body">
-                        <i class="zmdi zmdi-comment-text col-red"></i>
-                        <h4>@ViewBag.CustomerCount</h4>
-                        <span>Müşteri Sayısı</span>
-                    </div>
-                </li>
-                <li class="col-lg-2 col-md-4 col-6">
-                    <div class="body">
-                        <i class="zmdi zmdi-account text-success"></i>
-                        <h4>@ViewBag.OrderCount</h4>
-                        <span>Sipariş Sayısı</span>
-                    </div>
-                </li>
-                <li class="col-lg-2 col-md-4 col-6">
-                    <div class="body">
-                        <i class="zmdi zmdi-desktop-mac text-info"></i>
-                        <h4>@ViewBag.CountryCount</h4>
-                        <span>Ülke Sayısı</span>
-                    </div>
-                </li>
-                <li class="col-lg-2 col-md-4 col-6">
-                    <div class="body">
-                        <i class="zmdi zmdi-attachment text-warning"></i>
-                        <h4>@ViewBag.CityCount</h4>
-                        <span>Şehir Sayısı</span>
-                    </div>
-                </li>
-            </ul>
+﻿<div class="row apple-kpi-wrapper">
+
+    <!-- 1) Kategori -->
+    <div class="col-lg-2 col-md-4 col-6">
+        <div class="apple-kpi-card">
+            <div class="apple-kpi-icon icon-yellow">
+                <i class="zmdi zmdi-folder"></i>
+            </div>
+            <h3>@ViewBag.CategoryCount</h3>
+            <p>Kategori</p>
         </div>
     </div>
+
+    <!-- 2) Ürün -->
+    <div class="col-lg-2 col-md-4 col-6">
+        <div class="apple-kpi-card">
+            <div class="apple-kpi-icon icon-blue">
+                <i class="zmdi zmdi-shopping-basket"></i>
+            </div>
+            <h3>@ViewBag.ProductCount</h3>
+            <p>Ürün</p>
+        </div>
+    </div>
+
+    <!-- 3) Müşteri -->
+    <div class="col-lg-2 col-md-4 col-6">
+        <div class="apple-kpi-card">
+            <div class="apple-kpi-icon icon-green">
+                <i class="zmdi zmdi-accounts"></i>
+            </div>
+            <h3>@ViewBag.CustomerCount</h3>
+            <p>Müşteri</p>
+        </div>
+    </div>
+
+    <!-- 4) Sipariş -->
+    <div class="col-lg-2 col-md-4 col-6">
+        <div class="apple-kpi-card">
+            <div class="apple-kpi-icon icon-purple">
+                <i class="zmdi zmdi-receipt"></i>
+            </div>
+            <h3>@ViewBag.OrderCount</h3>
+            <p>Sipariş</p>
+        </div>
+    </div>
+
+    <!-- 5) Ülke -->
+    <div class="col-lg-2 col-md-4 col-6">
+        <div class="apple-kpi-card">
+            <div class="apple-kpi-icon icon-cyan">
+                <i class="zmdi zmdi-globe-alt"></i>
+            </div>
+            <h3>@ViewBag.CountryCount</h3>
+            <p>Ülke</p>
+        </div>
+    </div>
+
+    <!-- 6) Şehir -->
+    <div class="col-lg-2 col-md-4 col-6">
+        <div class="apple-kpi-card">
+            <div class="apple-kpi-icon icon-orange">
+                <i class="zmdi zmdi-city"></i>
+            </div>
+            <h3>@ViewBag.CityCount</h3>
+            <p>Şehir</p>
+        </div>
+    </div>
+
 </div>
+
+<style>
+    .apple-kpi-wrapper {
+        margin-bottom: 25px;
+    }
+
+    .apple-kpi-card {
+        background: #fff;
+        padding: 26px 10px;
+        border-radius: 22px;
+        text-align: center;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        transition: .25s ease;
+    }
+
+        .apple-kpi-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+    .apple-kpi-icon {
+        width: 62px;
+        height: 62px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: white;
+        margin: 0 auto 16px;
+    }
+
+    /* Apple renk paleti (pastel & soft) */
+    .icon-yellow {
+        background: #FBC02D;
+    }
+
+    .icon-blue {
+        background: #42A5F5;
+    }
+
+    .icon-green {
+        background: #66BB6A;
+    }
+
+    .icon-purple {
+        background: #AB47BC;
+    }
+
+    .icon-cyan {
+        background: #26C6DA;
+    }
+
+    .icon-orange {
+        background: #FFA726;
+    }
+
+    .apple-kpi-card h3 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 24px;
+        color: #222;
+    }
+
+    .apple-kpi-card p {
+        margin: 4px 0 0;
+        font-size: 14px;
+        color: #666;
+    }
+
+
+</style>
