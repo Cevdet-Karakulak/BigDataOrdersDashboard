@@ -1,0 +1,186 @@
+﻿<div id="city-widget" class="col-lg-4 col-md-6 col-sm-12">
+
+    <style>
+        #city-widget .card {
+            border-radius: 18px;
+            border: none;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        #city-widget .card-header {
+            padding: 20px 25px;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            color: white;
+        }
+
+            #city-widget .card-header h2 {
+                margin: 0;
+                font-size: 22px;
+                font-weight: 700;
+            }
+
+        #city-widget .card-body {
+            padding: 25px;
+        }
+
+        #city-widget .chart-box {
+            width: 100%;
+            height: 380px;
+            margin-top: 10px;
+        }
+
+        #city-widget canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        #city-widget table {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+            #city-widget table thead {
+                background: #f5f7fb;
+            }
+
+                #city-widget table thead th {
+                    font-weight: 600;
+                    color: #444;
+                }
+
+            #city-widget table tbody td {
+                font-size: 14px;
+            }
+    </style>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Şehirlere Göre Siparişler</h2>
+        </div>
+
+        <div class="card-body text-center">
+
+            <!-- ÜST BİLGİ BLOĞU -->
+            <div id="cityBarInfo" class="mb-3" style="margin-bottom:15px;">
+                <span style="font-size:24px;font-weight:700; color:#333;">
+                    @ViewBag.CityLabels[0]
+                </span>
+                <div style="font-size:15px; color:#666; margin-top:4px;">
+                    @{
+                        var total = ((List<int>)ViewBag.CityValues).Sum();
+                        var firstValue = ((List<int>)ViewBag.CityValues)[0];
+                        var percent = ((double)firstValue / total * 100).ToString("0.0");
+                    }
+                    @percent %
+                </div>
+            </div>
+
+            <!-- GRAFİK -->
+            <div class="chart-box">
+                <canvas id="cityOrdersBar"></canvas>
+            </div>
+
+        </div>
+
+        <!-- TABLO -->
+        <table class="table mb-3">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Şehir</th>
+                    <th>Sipariş</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var labels = (List<string>)ViewBag.CityLabels;
+                    var values = (List<int>)ViewBag.CityValues;
+
+                    for (int i = 0; i < labels.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@labels[i]</td>
+                            <td>@values[i]</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        (() => {
+            const labels = @Html.Raw(Json.Serialize(ViewBag.CityLabels));
+            const values = @Html.Raw(Json.Serialize(ViewBag.CityValues));
+            const colors = ['#4F46E5','#0EA5E9','#10B981','#F59E0B','#EF4444','#8B5CF6','#14B8A6'];
+
+            const total = values.reduce((a,b) => a+b, 0);
+
+            const canvas = document.querySelector('#cityOrdersBar');
+            const info = document.querySelector('#cityBarInfo');
+
+            // 🔥 BAR CHART
+            const chart = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderWidth: 0,
+                        borderRadius: 10,
+                        barThickness: 26
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx =>
+                                    `${ctx.raw} sipariş (${((ctx.raw/total)*100).toFixed(1)}%)`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: { color: "#555", font: { size: 12 } },
+                            grid: { color: "#eee" }
+                        },
+                        y: {
+                            ticks: { color: "#333", font: { size: 14, weight: "600" } },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            // 🔥 Üzerinde gezinince bilgiyi günceller
+            const setInfo = i => {
+                info.innerHTML =
+                `<span style="font-size:24px;font-weight:700;color:#333;">${labels[i]}</span>
+                 <div style="font-size:15px;color:#666;">${((values[i]/total)*100).toFixed(1)}%</div>`;
+            };
+
+            setInfo(0);
+
+            canvas.addEventListener('mousemove', e => {
+                const pts = chart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, false);
+                if (pts.length) setInfo(pts[0].index);
+            });
+
+            canvas.addEventListener('mouseleave', () => setInfo(0));
+        })();
+    </script>
+
+</div>

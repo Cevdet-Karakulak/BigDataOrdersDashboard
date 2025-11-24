@@ -31,3 +31,36 @@ VALUES
 ('Marta', 'Serra', 'marta.serra@example.com', '+39 340 334 5566', 'https://randomuser.me/api/portraits/women/28.jpg', 'Italy', 'Bari', 'Libertà', 'Corso Vittorio Emanuele 33, Bari'),
 ('Tommaso', 'Battaglia', 'tommaso.battaglia@example.com', '+39 333 667 4455', 'https://randomuser.me/api/portraits/men/29.jpg', 'Italy', 'Bologna', 'Corticella', 'Via Ferrarese 104, Bologna'),
 ('Silvia', 'Mancini', 'silvia.mancini@example.com', '+39 348 909 6677', 'https://randomuser.me/api/portraits/women/30.jpg', 'Italy', 'Verona', 'Navigatori', 'Via Albere 15, Verona');
+
+------------------------------------
+INSERT INTO [BigDataOrdersDb].[dbo].[Customers]
+([CustomerName], [CustomerSurname], [CustomerEmail], [CustomerPhone], [CustomerImageUrl], [CustomerCountry], [CustomerCity], [CustomerDistrict], [CustomerAddress])
+VALUES
+('Ahmet', 'Yılmaz', 'ahmet.yilmaz@example.com', '+90 532 111 2233', 'https://randomuser.me/api/portraits/men/31.jpg', 'Türkiye', 'İstanbul', 'Kadıköy', 'Bahariye Caddesi No:45, Kadıköy'),
+('Mehmet', 'Demir', 'mehmet.demir@example.com', '+90 534 225 8899', 'https://randomuser.me/api/portraits/men/32.jpg', 'Türkiye', 'İstanbul', 'Beşiktaş', 'Barbaros Bulvarı No:12, Beşiktaş'),
+('Ayşe', 'Kaya', 'ayse.kaya@example.com', '+90 536 987 4432', 'https://randomuser.me/api/portraits/women/33.jpg', 'Türkiye', 'Ankara', 'Çankaya', 'Atatürk Bulvarı No:78, Çankaya'),
+('Fatma', 'Çelik', 'fatma.celik@example.com', '+90 537 332 6655', 'https://randomuser.me/api/portraits/women/34.jpg', 'Türkiye', 'Ankara', 'Keçiören', '19 Mayıs Caddesi No:15, Keçiören'),
+('Ali', 'Şahin', 'ali.sahin@example.com', '+90 538 556 7788', 'https://randomuser.me/api/portraits/men/35.jpg', 'Türkiye', 'İzmir', 'Konak', 'Gazi Bulvarı No:20, Konak'),
+('Zeynep', 'Yıldız', 'zeynep.yildiz@example.com', '+90 539 111 4455', 'https://randomuser.me/api/portraits/women/36.jpg', 'Türkiye', 'İzmir', 'Bornova', 'Kazımdirik Mah. 146 Sok. No:8, Bornova'),
+('Mustafa', 'Aydın', 'mustafa.aydin@example.com', '+90 530 673 9981', 'https://randomuser.me/api/portraits/men/37.jpg', 'Türkiye', 'Antalya', 'Muratpaşa', 'Aspendos Bulvarı No:35, Muratpaşa'),
+('Elif', 'Arslan', 'elif.arslan@example.com', '+90 531 667 5544', 'https://randomuser.me/api/portraits/women/38.jpg', 'Türkiye', 'Antalya', 'Konyaaltı', 'Atatürk Bulv. No:90, Konyaaltı'),
+('Burak', 'Öztürk', 'burak.ozturk@example.com', '+90 533 778 1234', 'https://randomuser.me/api/portraits/men/39.jpg', 'Türkiye', 'Bursa', 'Nilüfer', 'FSM Bulvarı No:120, Nilüfer'),
+('Ceren', 'Polat', 'ceren.polat@example.com', '+90 535 221 8899', 'https://randomuser.me/api/portraits/women/40.jpg', 'Türkiye', 'Bursa', 'Osmangazi', 'Atatürk Caddesi No:14, Osmangazi'),
+('Hakan', 'Korkmaz', 'hakan.korkmaz@example.com', '+90 539 881 1122', 'https://randomuser.me/api/portraits/men/41.jpg', 'Türkiye', 'Eskişehir', 'Tepebaşı', 'İstiklal Mah. Çınar Sk. No:9, Tepebaşı'),
+('Aslı', 'Tekin', 'asli.tekin@example.com', '+90 536 441 2211', 'https://randomuser.me/api/portraits/women/42.jpg', 'Türkiye', 'Eskişehir', 'Odunpazarı', 'Atatürk Blv. No:33, Odunpazarı'),
+('İsmail', 'Koç', 'ismail.koc@example.com', '+90 531 667 9988', 'https://randomuser.me/api/portraits/men/43.jpg', 'Türkiye', 'Gaziantep', 'Şahinbey', 'Alleben Mah. No:22, Şahinbey'),
+('Seda', 'Uzun', 'seda.uzun@example.com', '+90 532 889 4455', 'https://randomuser.me/api/portraits/women/44.jpg', 'Türkiye', 'Gaziantep', 'Şehitkamil', 'Karataş Mah. No:11, Şehitkamil'),
+('Tolga', 'Ertürk', 'tolga.erturk@example.com', '+90 537 222 5566', 'https://randomuser.me/api/portraits/men/45.jpg', 'Türkiye', 'Konya', 'Selçuklu', 'Yeni İstanbul Cad. No:68, Selçuklu'),
+('Derya', 'Bozkurt', 'derya.bozkurt@example.com', '+90 538 667 7788', 'https://randomuser.me/api/portraits/women/46.jpg', 'Türkiye', 'Konya', 'Meram', 'Yaka Mah. 350 Sk. No:4, Meram'),
+('Okan', 'Yalçın', 'okan.yalcin@example.com', '+90 539 900 1122', 'https://randomuser.me/api/portraits/men/47.jpg', 'Türkiye', 'Kayseri', 'Kocasinan', 'Yavuz Sk. No:55, Kocasinan'),
+('Melisa', 'Akar', 'melisa.akar@example.com', '+90 531 332 8899', 'https://randomuser.me/api/portraits/women/48.jpg', 'Türkiye', 'Kayseri', 'Melikgazi', 'Hunat Mah. No:10, Melikgazi'),
+('Yusuf', 'Ege', 'yusuf.ege@example.com', '+90 530 284 6677', 'https://randomuser.me/api/portraits/men/49.jpg', 'Türkiye', 'Samsun', 'Atakum', 'Cumhuriyet Mah. No:21, Atakum'),
+('Nazlı', 'Sarı', 'nazli.sari@example.com', '+90 532 771 4422', 'https://randomuser.me/api/portraits/women/50.jpg', 'Türkiye', 'Samsun', 'İlkadım', 'Çiftlik Cad. No:3, İlkadım'),
+('Emre', 'Avcı', 'emre.avci@example.com', '+90 534 554 9191', 'https://randomuser.me/api/portraits/men/51.jpg', 'Türkiye', 'Adana', 'Seyhan', 'Ziyapaşa Bulv. No:14, Seyhan'),
+('Gizem', 'Tuna', 'gizem.tuna@example.com', '+90 536 772 6633', 'https://randomuser.me/api/portraits/women/52.jpg', 'Türkiye', 'Adana', 'Yüreğir', 'Doğukent Mah. No:8, Yüreğir'),
+('Serkan', 'Dal', 'serkan.dal@example.com', '+90 538 116 5599', 'https://randomuser.me/api/portraits/men/53.jpg', 'Türkiye', 'Trabzon', 'Ortahisar', 'Uzun Sokak No:27, Ortahisar'),
+('Büşra', 'Karadağ', 'busra.karadag@example.com', '+90 539 778 3322', 'https://randomuser.me/api/portraits/women/54.jpg', 'Türkiye', 'Trabzon', 'Akçaabat', 'Düzköy Yolu No:19, Akçaabat'),
+('Halil', 'Sezer', 'halil.sezer@example.com', '+90 530 667 1188', 'https://randomuser.me/api/portraits/men/55.jpg', 'Türkiye', 'Mersin', 'Yenişehir', 'Gazi Mah. No:7, Yenişehir'),
+('İrem', 'Albayrak', 'irem.albayrak@example.com', '+90 531 889 4477', 'https://randomuser.me/api/portraits/women/56.jpg', 'Türkiye', 'Mersin', 'Mezitli', 'Mezitli Cad. No:60, Mezitli'),
+('Kaan', 'Bulut', 'kaan.bulut@example.com', '+90 533 990 2211', 'https://randomuser.me/api/portraits/men/57.jpg', 'Türkiye', 'Rize', 'Merkez', 'Atatürk Cad. No:25, Rize'),
+('Selin', 'Ateş', 'selin.ates@example.com', '+90 535 321 7788', 'https://randomuser.me/api/portraits/women/58.jpg', 'Türkiye', 'Rize', 'Pazar', 'Şehitlik Mah. No:6, Pazar');

@@ -1,0 +1,93 @@
+﻿@model List<LoyaltyScoreDto>
+
+@{
+    ViewData["Title"] = "TurkeyLoyaltyScore";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<section class="content">
+
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    <img src="https://flagcdn.com/w20/tr.png"
+                         title="Türkiye"
+                         alt="Türkiye Bayrağı"
+                         style="width:28px; height:auto; vertical-align:middle; margin-right:8px;">
+
+                    Türkiye Müşteri Sadakat (Loyalty) Skoru Tablosu
+
+                    <small class="text-muted">
+                        Bu tablo; son alışveriş tarihi, sipariş sayısı ve toplam harcama kriterlerine göre hesaplanmıştır.
+                    </small>
+                </h2>
+            </div>
+
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item">
+                        <a href="/Dashboard/Index"><i class="zmdi zmdi-home"></i> Tahminlemeler</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Sipariş Tahminlemeleri</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Müşteri Adı</th>
+                                    <th>Sipariş Sayısı</th>
+                                    <th>Toplam Harcama (₺)</th>
+                                    <th>Son Sipariş Tarihi</th>
+                                    <th>Sadakat (Loyalty) Skoru</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+
+                                    <tr>
+                                        <th>@count</th>
+                                        <td>@item.CustomerName</td>
+                                        <td>@item.TotalOrders</td>
+                                        <td>@item.TotalSpent ₺</td>
+                                        <td>@item.LastOrderDate?.ToString("dd.MMM.yyyy")</td>
+
+                                        <td>
+                                            <div class="progress" style="height:20px;">
+                                                <div class="progress-bar @(item.LoyaltyScore >= 80 ? "bg-success" :
+                                                                                                                               item.LoyaltyScore >= 50 ? "bg-warning" : "bg-danger")"
+                                                 role="progressbar"
+                                                 style="width:@item.LoyaltyScore%; font-weight:600;">
+                                                @item.LoyaltyScore
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+

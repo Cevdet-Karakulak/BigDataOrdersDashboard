@@ -51,13 +51,13 @@
                                 {
                                     <tr>
                                         <th>@item.OrderId</th>
-                                        <td>@item.Product.ProductName</td>
-                                        <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
-                                        <td>@item.Product.UnitPrice €</td>
+                                        <td>@(item.Product?.ProductName ?? "—")</td>
+                                        <td>@($"{item.Customer?.CustomerName ?? "—"} {item.Customer?.CustomerSurname ?? ""}")</td>
+                                        <td>@item.Product?.UnitPrice €</td>
                                         <td>@item.Quantity</td>
-                                        <td>@(item.Product.UnitPrice * item.Quantity) €</td>
-                                        <td>@item.PaymentMethod</td>
-                                        <td>@item.OrderStatus</td>
+                                        <td>@(item.Product != null ? item.Product.UnitPrice * item.Quantity : 0) €</td>
+                                        <td>@(item.PaymentMethod ?? "Bilinmiyor")</td>
+                                        <td>@(item.OrderStatus ?? "Belirsiz")</td>
                                         <td>@item.OrderDate.ToString("dd-MMM-yyyy")</td>
                                         <td>
                                             <a href="/Order/DeleteOrder/@item.OrderId" class="btn btn-danger btn-sm">Sil</a>

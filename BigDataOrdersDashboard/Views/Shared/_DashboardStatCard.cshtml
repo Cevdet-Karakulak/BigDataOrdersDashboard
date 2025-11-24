@@ -1,0 +1,10 @@
+﻿@model dynamic
+
+<div class="col-lg-3 col-sm-6 col-md-6 mb-4">
+    <div class="stat-card" style="background: @Model.Gradient">
+        <i class="fa @Model.Icon stat-icon"></i>
+        <div class="stat-value">@Model.Value</div>
+        <div class="stat-label">@Model.Label</div>
+        <canvas id="@Model.ChartId" class="mini-chart"></canvas>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 using BigDataOrdersDashboard.Context;
 using BigDataOrdersDashboard.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddDbContext<BigDataOrdersDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<MLContext>();
 
 builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient<CurrencyService>();

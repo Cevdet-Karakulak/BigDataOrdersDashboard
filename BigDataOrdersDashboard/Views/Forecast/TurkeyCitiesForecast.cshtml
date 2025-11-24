@@ -1,0 +1,74 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "TurkeyCitiesForecast";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    <img src="https://flagcdn.com/w20/tr.png"
+                         title="Turkey"
+                         alt="Türkiye Bayrağı"
+                         style="width:28px; height:auto; vertical-align:middle; margin-right:8px;">
+                    2026 Yılı Türkiye Şehirleri Sipariş Sayısı Tahminleri
+                    <small class="text-muted">2024 ve 2025 Yılı Verilerine Göre Tahminlenmiştir</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Tahminlemeler</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Sipariş Tahminlemeleri</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Şehir</th>
+                                    <th>2024 Satış Sayısı</th>
+                                    <th>2025 Satış Sayısı</th>
+                                    <th>2026 Tahmini Satış Sayısı</th>
+                                    <th>2026 Artış Oranı (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    var growth = (double?)item.GrowthRate;
+                                    var growthClass = growth.HasValue
+                                    ? (growth.Value >= 0 ? "text-success" : "text-danger")
+                                    : "text-muted";
+                                    var growthText = growth.HasValue ? growth.Value.ToString("F2") + "%" : "—";
+
+                                    <tr>
+                                        <th>@item.City</th>
+                                        <td>@item.Year2024</td>
+                                        <td>@item.Year2025</td>
+                                        <td>@item.ForecastedCount</td>
+                                        <td class="@growthClass">@growthText</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
