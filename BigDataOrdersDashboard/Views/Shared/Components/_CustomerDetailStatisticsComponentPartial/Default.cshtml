@@ -1,0 +1,100 @@
+﻿<div class="row clearfix">
+    <div class="col-lg-12">
+        <div class="card">
+            <ul class="row profile_state list-unstyled mb-0">
+
+                <li class="col-lg-2 col-md-4 col-6">
+                    <div class="state-box">
+                        <i class="zmdi zmdi-camera icon amber"></i>
+                        <h4>@ViewBag.TotalOrderCount</h4>
+                        <span>Sipariş Sayısı</span>
+                    </div>
+                </li>
+
+                <li class="col-lg-2 col-md-4 col-6">
+                    <div class="state-box">
+                        <i class="zmdi zmdi-thumb-up icon blue"></i>
+                        <h4>@ViewBag.CompletedOrderCount</h4>
+                        <span>Tamamlanan Siparişler</span>
+                    </div>
+                </li>
+
+                <li class="col-lg-2 col-md-4 col-6">
+                    <div class="state-box">
+                        <i class="zmdi zmdi-comment-text icon red"></i>
+                        <h4>@ViewBag.CanceledOrderCount</h4>
+                        <span>İptal Edilen Siparişler</span>
+                    </div>
+                </li>
+
+                <li class="col-lg-2 col-md-4 col-6">
+                    <div class="state-box">
+                        <i class="zmdi zmdi-account icon green"></i>
+                        <h4>@ViewBag.GetCustomerCountry</h4>
+                        <span>Müşteri Ülke</span>
+                    </div>
+                </li>
+
+                <li class="col-lg-2 col-md-4 col-6">
+                    <div class="state-box">
+                        <i class="zmdi zmdi-pin icon teal"></i>
+                        <h4>
+                            <h4>@ViewBag.GetCustomerCity</h4>
+                        </h4>
+                        <span>Müşteri Şehir</span>
+                    </div>
+                </li>
+
+                <li class="col-lg-2 col-md-4 col-6">
+                    <div class="state-box">
+                        <i class="zmdi zmdi-attachment icon orange"></i>
+                        <h4>@(((decimal)ViewBag.TotalSpentMoney).ToString("N2")) €</h4>
+                        <span>Toplam Harcanan Tutar</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    .state-box {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 18px 10px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: all .25s ease;
+    }
+
+    .state-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    .state-box .icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .state-box h4 {
+        font-size: 20px;
+        margin: 5px 0;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .state-box span {
+        font-size: 13px;
+        color: #777;
+    }
+
+    .icon.amber { color: #FFC107; }
+    .icon.blue { color: #2196F3; }
+    .icon.red { color: #F44336; }
+    .icon.green { color: #4CAF50; }
+    .icon.teal { color: #009688; }
+    .icon.orange { color: #FF9800; }
+</style>

@@ -1,9 +1,11 @@
 using BigDataOrdersDashboard.Context;
 using BigDataOrdersDashboard.Services;
+using BigDataOrdersDashboard.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddUserSecrets<Program>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -16,8 +18,10 @@ builder.Services.AddDbContext<BigDataOrdersDbContext>(options =>
 builder.Services.AddScoped<MLContext>();
 
 builder.Services.AddMemoryCache();
-builder.Services.AddHttpClient<CurrencyService>();
 
+builder.Services.AddHttpClient<CurrencyService>();
+builder.Services.Configure<OpenAISettings>(
+    builder.Configuration.GetSection("OpenAI"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

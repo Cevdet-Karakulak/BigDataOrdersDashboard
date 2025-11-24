@@ -63,6 +63,7 @@
                                         </td>
                                         <td class="@GetLoyaltyColor(item.PredictedLoyaltyScore)">
                                             @item.PredictedLoyaltyScore
+                                            @Html.Raw(GetTrendIcon(item.ActualLoyaltyScore, item.PredictedLoyaltyScore))
                                         </td>
 
                                     </tr>
@@ -74,12 +75,29 @@
                             public string GetLoyaltyColor(double score)
                             {
                                 if (score >= 80)
-                                    return "text-success fw-bold";   // 🟢 Yüksek
+                                    return "text-success fw-bold";  
                                 else if (score >= 50)
-                                    return "text-warning fw-bold";   // 🟡 Orta
+                                    return "text-warning fw-bold";  
                                 else
-                                    return "text-danger fw-bold";    // 🔴 Düşük
+                                    return "text-danger fw-bold";   
                             }
+                            public string GetTrendIcon(double actual, double predicted)
+                            {
+                                if (predicted > actual)
+                                {
+                                    return "<span class='text-success fw-bold ms-1'>&uarr;</span>";  // yukarı ok
+                                }
+                                else if (predicted < actual)
+                                {
+                                    return "<span class='text-danger fw-bold ms-1'>&darr;</span>";  // aşağı ok
+                                }
+                                else
+                                {
+                                    return "<span class='text-secondary fw-bold ms-1'>→</span>";     // değişim yok
+                                }
+                            }
+
+
                         }
 
 

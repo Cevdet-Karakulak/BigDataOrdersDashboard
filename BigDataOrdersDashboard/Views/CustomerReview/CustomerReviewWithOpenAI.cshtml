@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "CustomerReviewWithOpenAI";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content profile-page">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="card overflowhidden m-t-20">
+
+                    @await Component.InvokeAsync("_CustomerDetailMainCoverTableComponentPartial")
+
+                    @await Component.InvokeAsync("_CustomerDetailSubHeaderComponentPartial")
+
+                </div>
+
+                @await Component.InvokeAsync("_CustomerDetailStatisticsComponentPartial")
+
+            </div>
+        </div>
+
+        @await Component.InvokeAsync("_CustomerReviewWithOpenAIAnalysisComponentPartial")
+
+    </div>
+</section>
