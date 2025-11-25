@@ -136,6 +136,8 @@ https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master
 ![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
 
 ### 📦 Ürünler  
+![Category](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Category.png)
+
 ![](./wwwroot/BigDataDashboardSS/Product.png)  
 ![](./wwwroot/BigDataDashboardSS/Category.png)
 
