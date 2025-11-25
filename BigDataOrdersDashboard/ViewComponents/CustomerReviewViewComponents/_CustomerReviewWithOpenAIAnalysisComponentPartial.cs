@@ -27,8 +27,6 @@ namespace BigDataOrdersDashboard.ViewComponents.CustomerReviewViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(int id)
         {
-            id = 657;
-
             var reviews = await _context.Reviews
                 .Where(r => r.CustomerId == id)
                 .OrderByDescending(r => r.ReviewDate)

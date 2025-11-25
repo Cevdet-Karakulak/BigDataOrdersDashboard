@@ -19,7 +19,6 @@ namespace BigDataOrdersDashboard.Controllers
         }
         public IActionResult PaymentMethodForecast()
         {
-            //2025 Yılı Verilerinin Çekilmesi
             var startDate = new DateTime(2025, 1, 1);
             var endDate = new DateTime(2025, 12, 31);
 
@@ -40,39 +39,54 @@ namespace BigDataOrdersDashboard.Controllers
                 .OrderBy(x => x.Month)
                 .ToList();
 
-            //Tahmin Sonuçlarını Tutacak Liste
-            var forecasts = new List<Object>();
+            var forecasts = new List<object>();
 
-            //Her Ödeme Yöntemi İçin Ayrı Ayrı Model Oluşturulması
             foreach (var method in monthlyPaymentData.Select(x => x.PaymentMethod).Distinct())
             {
                 var methodData = monthlyPaymentData
                     .Where(x => x.PaymentMethod == method)
-                   .Select((x, index) => new PaymentForecastData
-                   {
-                       PaymentMethod = method,
-                       MonthIndex = index + 1,
-                       OrderCount = x.OrderCount
-                   }).ToList();
+                    .Select((x, index) => new PaymentForecastData
+                    {
+                        PaymentMethod = method,
+                        MonthIndex = index + 1,
+                        OrderCount = x.OrderCount
+                    }).ToList();
+
+                int count = methodData.Count;
+
+                // Veri çok azsa forecasting yapma
+                if (count < 8)
+                {
+                    forecasts.Add(new
+                    {
+                        PaymentMethod = method,
+                        Month = "Yetersiz Veri",
+                        ForecastedCount = 0
+                    });
+                    continue;
+                }
+
+                // Dinamik parametre ayarları
+                int windowSize = Math.Max(3, count / 4);
+                int seriesLength = count;
+                int trainSize = count - 1;
+                int horizon = 3;
 
                 var dataView = _mLContext.Data.LoadFromEnumerable(methodData);
 
-                //Forecast Modeli
                 var pipeline = _mLContext.Forecasting.ForecastBySsa(
                     outputColumnName: "ForecastedValues",
                     inputColumnName: nameof(PaymentForecastData.OrderCount),
-                    windowSize: 4,
-                    seriesLength: methodData.Count,
-                    trainSize: methodData.Count,
-                    horizon: 3,
+                    windowSize: windowSize,
+                    seriesLength: seriesLength,
+                    trainSize: trainSize,
+                    horizon: horizon,
                     confidenceLevel: 0.95f
-                    );
+                );
 
                 var model = pipeline.Fit(dataView);
                 var engine = model.CreateTimeSeriesEngine<PaymentForecastData, PaymentForecastPrediction>(_mLContext);
                 var prediction = engine.Predict();
-
-                //2026 Yılı Ocak Şubat Mart Ayı Tahminleri
 
                 for (int i = 0; i < prediction.ForecastedValues.Length; i++)
                 {
@@ -85,9 +99,9 @@ namespace BigDataOrdersDashboard.Controllers
                 }
             }
 
-
             return View(forecasts);
         }
+
 
         public IActionResult GermanyCitiesForecast()
         {

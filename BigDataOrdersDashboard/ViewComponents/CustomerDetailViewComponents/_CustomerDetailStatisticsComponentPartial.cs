@@ -13,16 +13,11 @@ namespace BigDataOrdersDashboard.ViewComponents.CustomerDetailViewComponents
 
         public IViewComponentResult Invoke(int id)
         {
-            id = 8;
+            ViewBag.TotalOrderCount = _context.Orders.Count(x => x.CustomerId == id);
 
-            ViewBag.TotalOrderCount = _context.Orders
-                .Count(x => x.CustomerId == id);
+            ViewBag.CompletedOrderCount = _context.Orders.Count(x => x.CustomerId == id && x.OrderStatus == "Tamamlandı");
 
-            ViewBag.CompletedOrderCount = _context.Orders
-                .Count(x => x.CustomerId == id && x.OrderStatus == "Tamamlandı");
-
-            ViewBag.CanceledOrderCount = _context.Orders
-                .Count(x => x.CustomerId == id && x.OrderStatus == "İptal Edildi");
+            ViewBag.CanceledOrderCount = _context.Orders.Count(x => x.CustomerId == id && x.OrderStatus == "İptal Edildi");
 
             ViewBag.GetCustomerCountry = _context.Customers
                 .Where(x => x.CustomerId == id)
@@ -35,13 +30,12 @@ namespace BigDataOrdersDashboard.ViewComponents.CustomerDetailViewComponents
                 .FirstOrDefault() ?? "Bilinmiyor";
 
             ViewBag.TotalSpentMoney = _context.Orders
-            .Where(x => x.CustomerId == id)
-            .OrderByDescending(x => x.OrderDate)
-            .Take(20)
-            .Sum(x => x.Quantity * x.Product.UnitPrice);
+                .Where(x => x.CustomerId == id)
+                .Sum(x => x.Quantity * x.Product.UnitPrice);
 
             return View();
         }
+
 
 
     }

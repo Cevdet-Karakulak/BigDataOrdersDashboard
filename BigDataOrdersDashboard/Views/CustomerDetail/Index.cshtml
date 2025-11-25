@@ -10,17 +10,17 @@
             <div class="col-sm-12">
                 <div class="card overflowhidden m-t-20">
 
-                    @await Component.InvokeAsync("_CustomerDetailMainCoverTableComponentPartial")
-                 
+                    @await Component.InvokeAsync("_CustomerDetailMainCoverTableComponentPartial", new { id = ViewBag.CustomerId })
+
                     @await Component.InvokeAsync("_CustomerDetailSubHeaderComponentPartial")     
 
                 </div>
 
-                @await Component.InvokeAsync("_CustomerDetailStatisticsComponentPartial")
+                @await Component.InvokeAsync("_CustomerDetailStatisticsComponentPartial", new { id = ViewBag.CustomerId })
 
             </div>
         </div>
-        @await Component.InvokeAsync("_CustomerDetailAIAnalysisByLastOrdersComponentPartial")
-       
+        @await Component.InvokeAsync("_CustomerDetailAIAnalysisByLastOrdersComponentPartial", new { id = ViewBag.CustomerId })
+
     </div>
 </section>

@@ -26,9 +26,6 @@ namespace BigDataOrdersDashboard.ViewComponents.CustomerDetailViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(int id)
         {
-            id = 8;
-
-            //Müşteri Listesi
             var customer = _context.Customers
                 .Include(c => c.Orders)
                 .ThenInclude(o => o.Product)
@@ -39,18 +36,19 @@ namespace BigDataOrdersDashboard.ViewComponents.CustomerDetailViewComponents
                     c.CustomerName,
                     c.CustomerSurname,
                     Orders = c.Orders
-                    .OrderByDescending(o => o.OrderDate)
-                    .Take(20)
-                    .Select(o => new
-                    {
-                        o.OrderDate,
-                        Product = o.Product.ProductName,
-                        Category = o.Product.Category.CategoryName,
-                        o.Quantity,
-                        o.Product.UnitPrice,
-                        TotalPrice = o.Quantity * o.Product.UnitPrice
-                    })
+                        .OrderByDescending(o => o.OrderDate)
+                        .Take(20)
+                        .Select(o => new
+                        {
+                            o.OrderDate,
+                            Product = o.Product.ProductName,
+                            Category = o.Product.Category.CategoryName,
+                            o.Quantity,
+                            o.Product.UnitPrice,
+                            TotalPrice = o.Quantity * o.Product.UnitPrice
+                        })
                 }).FirstOrDefault();
+
 
             var jsonData = JsonSerializer.Serialize(customer);
 

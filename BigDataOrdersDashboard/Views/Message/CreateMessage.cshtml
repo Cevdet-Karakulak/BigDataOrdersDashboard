@@ -1,0 +1,72 @@
+﻿@model Message
+
+@{
+    ViewData["Title"] = "CreateMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content">
+
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Yeni Mesaj Ekleme
+                    <small class="text-muted">Mesaj İşlemleri</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="/Message/MessageList"><i class="zmdi zmdi-home"></i> Mesajlar</a></li>
+                    <li class="breadcrumb-item active">Yeni Mesaj</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+
+                <div class="card shadow-sm" style="border-radius: 10px;">
+                    <div class="header bg-primary text-white" style="border-radius: 10px 10px 0 0;">
+                        <h5 class="mb-0">+ Yeni Mesaj Bilgileri</h5>
+                    </div>
+
+                    <div class="body" style="padding: 35px;">
+
+                        <form method="post" class="mb-3">
+
+                            <div class="form-group">
+                                <label class="font-weight-bold">Müşteri Id</label>
+                                <input type="text" asp-for="CustomerId" class="form-control"
+                                       style="border: 1px solid #ccc; border-radius: 6px;" />
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label class="font-weight-bold">Konu</label>
+                                <input type="text" asp-for="MessageSubject" class="form-control"
+                                       style="border: 1px solid #ccc; border-radius: 6px;" />
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label class="font-weight-bold">Mesaj İçeriği</label>
+                                <textarea asp-for="MessageText" rows="6" class="form-control"
+                                          style="border: 1px solid #ccc; border-radius: 6px;"></textarea>
+                            </div>
+
+                            <div class="text-right mt-4">
+                                <button class="btn btn-primary btn-lg" style="padding: 10px 25px;">
+                                    <i class="zmdi zmdi-check"></i> Mesajı Oluştur
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

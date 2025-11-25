@@ -52,7 +52,9 @@
                                         <td>@item.Rating</td>
                                         <td>@item.Sentiment</td>
                                         <td>
-                                            <a href="/Review/DeleteReview/@item.ReviewId" class="btn btn-warning btn-sm">Yorumu Gör</a>
+                                            <button class="btn btn-warning btn-sm openReviewBtn" data-id="@item.ReviewId">
+                                                <i class="zmdi zmdi-eye"></i> Yorumu Gör
+                                            </button>
                                         </td>
                                         <td>
                                             <a href="/Review/DeleteReview/@item.ReviewId" class="btn btn-danger btn-sm">Sil</a>
@@ -137,3 +139,59 @@
     </div>
 </section>
 
+<!-- REVIEW DETAY MODAL -->
+<div class="modal fade" id="reviewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+            <div class="modal-header" style="background:#3f51b5; color:white;">
+                <h5 class="modal-title">
+                    <i class="zmdi zmdi-comment-text"></i> Yorum Detayı
+                </h5>
+                <button type="button" class="close text-white" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" style="font-size:16px;">
+                <h5 id="revCustomer" class="font-weight-bold mb-2"></h5>
+
+                <p class="text-muted">
+                    <i class="zmdi zmdi-label"></i> <span id="revProduct"></span> &nbsp; | &nbsp;
+                    <i class="zmdi zmdi-star"></i> <span id="revRating"></span> &nbsp; | &nbsp;
+                    <i class="zmdi zmdi-info-outline"></i> <span id="revSentiment"></span>
+                </p>
+
+                <hr />
+
+                <p id="revComment"></p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-rounded" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).on("click", ".openReviewBtn", function () {
+        var id = $(this).data("id");
+
+        $.ajax({
+            url: "/Review/GetReviewDetail",
+            data: { id: id },
+            success: function (res) {
+                if (!res.success) return;
+
+                $("#revCustomer").text(res.customer);
+                $("#revProduct").text(res.product);
+                $("#revRating").text(res.rating);
+                $("#revSentiment").text(res.sentiment);
+                $("#revComment").text(res.comment);
+
+                $("#reviewModal").modal("show");
+            }
+        });
+    });
+</script>

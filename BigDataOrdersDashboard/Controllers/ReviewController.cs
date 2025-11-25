@@ -69,5 +69,27 @@ namespace BigDataOrdersDashboard.Controllers
             _context.SaveChanges();
             return RedirectToAction("ReviewList");
         }
+        [HttpGet]
+        public IActionResult GetReviewDetail(int id)
+        {
+            var review = _context.Reviews
+                .Include(r => r.Customer)
+                .Include(r => r.Product)
+                .FirstOrDefault(r => r.ReviewId == id);
+
+            if (review == null)
+                return Json(new { success = false });
+
+            return Json(new
+            {
+                success = true,
+                customer = review.Customer.CustomerName + " " + review.Customer.CustomerSurname,
+                product = review.Product.ProductName,
+                rating = review.Rating,
+                sentiment = review.Sentiment,
+                comment = review.ReviewText,  
+                date = review.ReviewDate.ToString("dd MMM yyyy")
+            });
+        }
     }
 }

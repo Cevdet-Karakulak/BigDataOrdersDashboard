@@ -1,4 +1,0 @@
-﻿ <img src="https://flagcdn.com/w20/de.png" 
-         title="Germany" 
-         alt="Almanya Bayrağı" 
-         style="width:28px; height:auto; vertical-align:middle; margin-right:8px;">

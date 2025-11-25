@@ -1,0 +1,349 @@
+﻿@model List<Message>
+
+@{
+    ViewData["Title"] = "MessageList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<style>
+
+    /* TABLO GENEL TASARIM */
+    table.table {
+        font-size: 14.5px;
+    }
+
+    thead th {
+        background: #2c3e50 !important;
+        color: #fff;
+        font-weight: 600;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+        letter-spacing: .3px;
+    }
+
+    .table tbody tr td {
+        vertical-align: middle !important;
+        padding: 12px 14px !important;
+    }
+
+    .table-hover tbody tr:hover {
+        background: #eef3fa !important;
+        cursor: pointer;
+    }
+
+    /* BADGE’LER */
+    .badge-uygun {
+        background: #43a047;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .badge-toksik {
+        background: #e53935;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .badge-neutral {
+        background: #607d8b;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    /* BUTONLAR */
+    .btn-custom-orange {
+        background: #fb8c00;
+        color: white;
+        border-radius: 6px;
+        font-weight: 600;
+        padding: 6px 12px;
+    }
+
+        .btn-custom-orange:hover {
+            background: #ef6c00;
+            color: white;
+        }
+
+    .btn-custom-danger {
+        background: #e53935;
+        color: white;
+        border-radius: 6px;
+        padding: 6px 12px;
+    }
+
+    .btn-custom-success {
+        background: #43a047;
+        color: white;
+        border-radius: 6px;
+        padding: 6px 12px;
+    }
+
+    /* SAYFALAMA */
+    .pagination .page-item.active .page-link {
+        background: #3f51b5;
+        border-color: #3f51b5;
+        color: white;
+    }
+
+    .pagination .page-link {
+        color: #3f51b5;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 6px;
+    }
+
+        .pagination .page-link:hover {
+            background: #eee;
+        }
+
+    /* ALT YENİ MESAJ OLUŞTUR */
+    .btn-new-message {
+        background: #1e88e5;
+        padding: 10px 22px;
+        font-size: 15px;
+        border-radius: 30px;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+</style>
+
+
+<section class="content">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2 style="font-weight:600;">
+                    Mesaj Listesi
+                    <small class="text-muted">Kullanıcı Mesaj İşlemleri</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="/Dashboard/Index"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+                    <li class="breadcrumb-item active">Mesaj Listesi</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-header-custom">
+                        <h5 style="margin:0;"><i class="zmdi zmdi-email"></i> Gelen Mesajlar</h5>
+                    </div>
+
+                    <div class="body">
+
+                        <table class="table table-bordered table-hover shadow-sm">
+                            <thead class="thead-dark" style="background:#3f51b5; color:white;">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Gönderici</th>
+                                    <th>Konu</th>
+                                    <th>Durum</th>
+                                    <th>Tarih</th>
+                                    <th style="width:120px;">Detay</th>
+                                    <th style="width:100px;">Sil</th>
+                                    <th style="width:110px;">Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var badgeClass = item.SentimentLabel switch
+                                    {
+                                        "positive" => "badge-positive",
+                                        "Uygun İçerik" => "badge-uygun",
+                                        "Toksik İçerik" => "badge-toksik ",
+                                        "negative" => "badge-negative",
+                                        _ => "badge-neutral"
+                                    };
+
+                                    <tr>
+                                        <td><strong>@item.MessageId</strong></td>
+                                        <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+                                        <td>@item.MessageSubject</td>
+                                        <td>
+                                            <span class="badge @badgeClass" style="padding:6px 10px; font-size:13px;">
+                                                @item.SentimentLabel
+                                            </span>
+                                        </td>
+                                        <td>@item.CreatedDate.ToString("dd MMM yyyy")</td>
+
+                                        <td>
+                                            <button class="btn btn-custom-orange btn-sm openMessageBtn" data-id="@item.MessageId">
+                                                <i class="zmdi zmdi-eye"></i> Aç
+                                            </button>
+                                        </td>
+
+                                        <td>
+                                            <a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-custom-danger btn-sm">
+                                                <i class="zmdi zmdi-delete"></i> Sil
+                                            </a>
+                                        </td>
+
+                                        <td>
+                                            <a href="/Message/UpdateMessage/@item.MessageId" class="btn btn-custom-success btn-sm">
+                                                <i class="zmdi zmdi-edit"></i> Güncelle
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+                        <!-- SAYFALAMA -->
+                        <div class="mt-4 text-center">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-center">
+
+                                    @* ÖNCEKİ *@
+                                    @if (ViewBag.CurrentPage > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="/Message/MessageList?page=@(ViewBag.CurrentPage - 1)">Önceki</a>
+                                        </li>
+                                    }
+
+                                    @{
+                                        int startPage = Math.Max(1, ViewBag.CurrentPage - 2);
+                                        int endPage = Math.Min(ViewBag.TotalPages, ViewBag.CurrentPage + 2);
+                                    }
+
+                                    @* İlk sayfa gerekiyorsa *@
+                                    @if (startPage > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="/Message/MessageList?page=1">1</a>
+                                        </li>
+
+                                        @if (startPage > 2)
+                                        {
+                                            <li class="page-item disabled">
+                                                <span class="page-link">...</span>
+                                            </li>
+                                        }
+                                    }
+
+                                    @* Merkez sayfalar *@
+                                    @for (int i = startPage; i <= endPage; i++)
+                                    {
+                                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                            <a class="page-link" href="/Message/MessageList?page=@i">@i</a>
+                                        </li>
+                                    }
+
+                                    @* Son sayfa gerekiyorsa *@
+                                    @if (endPage < ViewBag.TotalPages)
+                                    {
+                                        @if (endPage < ViewBag.TotalPages - 1)
+                                        {
+                                            <li class="page-item disabled">
+                                                <span class="page-link">...</span>
+                                            </li>
+                                        }
+
+                                        <li class="page-item">
+                                            <a class="page-link" href="/Message/MessageList?page=@ViewBag.TotalPages">@ViewBag.TotalPages</a>
+                                        </li>
+                                    }
+
+                                    @* SONRAKİ *@
+                                    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="/Message/MessageList?page=@(ViewBag.CurrentPage + 1)">Sonraki</a>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </nav>
+                        </div>
+
+
+                        <div class="text-center mt-4 mb-3">
+                            <a href="/Message/CreateMessage" class="btn btn-primary btn-rounded">
+                                <i class="zmdi zmdi-plus"></i> Yeni Mesaj Oluştur
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- MESAJ DETAY MODAL -->
+<div class="modal fade" id="messageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content shadow-lg">
+            <div class="modal-header modal-header-custom">
+                <h5 class="modal-title"><i class="zmdi zmdi-email-open"></i> Mesaj Detayı</h5>
+                <button type="button" class="close text-white" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" style="font-size:16px;">
+                <h5 id="msgSubject" class="font-weight-bold mb-2"></h5>
+
+                <p class="text-muted">
+                    <i class="zmdi zmdi-account"></i> <span id="msgSender"></span> &nbsp; | &nbsp;
+                    <i class="zmdi zmdi-time"></i> <span id="msgDate"></span> &nbsp; | &nbsp;
+                    <i class="zmdi zmdi-info-outline"></i> <span id="msgSentiment"></span>
+                </p>
+
+                <hr />
+
+                <p id="msgContent"></p>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-rounded" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).on("click", ".openMessageBtn", function () {
+        var id = $(this).data("id");
+
+        $.ajax({
+            url: "/Message/GetMessageDetail",
+            data: { id: id },
+            success: function (res) {
+                if (!res.success) return;
+
+                $("#msgSubject").text(res.subject);
+                $("#msgSender").text(res.sender);
+                $("#msgContent").text(res.content);
+                $("#msgDate").text(res.date);
+                $("#msgSentiment").text(res.sentiment);
+
+                $("#messageModal").modal("show");
+            }
+        });
+    });
+</script>

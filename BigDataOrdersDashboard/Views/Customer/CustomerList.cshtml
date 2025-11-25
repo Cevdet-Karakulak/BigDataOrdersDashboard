@@ -36,6 +36,8 @@
                                     <th>#</th>
                                     <th>Müşteri Adı</th>
                                     <th>Şehir - Ülke</th>
+                                    <th>Detay</th>
+                                    <th>Yorum Analizi</th>
                                     <th>Sil</th>
                                     <th>Güncelle</th>
                                 </tr>
@@ -47,6 +49,18 @@
                                         <th>@item.CustomerId</th>
                                         <td>@item.CustomerName @item.CustomerSurname</td>
                                         <td>@item.CustomerCity - @item.CustomerCountry</td>
+                                        <td>
+                                            <a href="/CustomerDetail/Index/@item.CustomerId"
+                                               class="btn btn-info btn-sm">
+                                                <i class="zmdi zmdi-account"></i> Detay
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="/CustomerReview/CustomerReviewWithOpenAI/@item.CustomerId"
+                                               class="btn btn-purple btn-sm">
+                                                <i class="zmdi zmdi-chart"></i> Yorum Analizi
+                                            </a>
+                                        </td>
                                         <td>
                                             <a href="/Customer/DeleteCustomer/@item.CustomerId" class="btn btn-danger btn-sm">Sil</a>
                                         </td>

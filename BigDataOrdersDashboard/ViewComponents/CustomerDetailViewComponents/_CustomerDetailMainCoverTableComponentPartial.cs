@@ -11,9 +11,9 @@ namespace BigDataOrdersDashboard.ViewComponents.CustomerDetailViewComponents
             _context = context;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int id)
         {
-            var value = _context.Customers.Where(x=>x.CustomerId==8).FirstOrDefault();
+            var value = _context.Customers.FirstOrDefault(x => x.CustomerId == id);
             return View(value);
         }
     }
