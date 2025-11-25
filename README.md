@@ -111,7 +111,7 @@ Tamamen otomatik AI raporu çıkar.
 ## 📸 Ekran Görüntüleri
 
 ### 📊 Dashboard  
-![](./wwwroot/BigDataDashboardSS/Dashboard1.png)  
+https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard1.png
 ![](./wwwroot/BigDataDashboardSS/Dashboard2.png)  
 ![](./wwwroot/BigDataDashboardSS/Dashboard3.png)  
 ![](./wwwroot/BigDataDashboardSS/Dashboard4.png)  
