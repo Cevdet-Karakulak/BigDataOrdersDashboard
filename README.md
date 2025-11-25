@@ -106,65 +106,63 @@ Tamamen otomatik AI raporu çıkar.
   <img src="https://img.shields.io/badge/Leaflet%20Map-1C7C54?style=for-the-badge" />
 </p>
 ---
----
 
 ## 📸 Ekran Görüntüleri
 
 ### 📊 Dashboard  
-![Category](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard1.png)
-![Category](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Category.png)
-
-![](./wwwroot/BigDataDashboardSS/Dashboard2.png)  
-![](./wwwroot/BigDataDashboardSS/Dashboard3.png)  
-![](./wwwroot/BigDataDashboardSS/Dashboard4.png)  
-![](./wwwroot/BigDataDashboardSS/Dashboard5.png)
+![Dashboard](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard1.png)
+![Dashboard1](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard2.png)
+![Dashboard1](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard3.png)
+![Dashboard1](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard4.png)
+![Dashboard1](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Dashboard5.png)
 
 ### 👤 Müşteri  
-![](./wwwroot/BigDataDashboardSS/CustomerList.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerDetail1.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerDetail2.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerDetail3.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerDetail4.png)
+![Customer](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerList.png)
+![Customer](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerDetail1.png)
+![Customer](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerDetail2.png)
+![Customer](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerDetail3.png)
+![Customer](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerDetail4.png)
 
 ### 🧠 Müşteri Analitiği  
-![](./wwwroot/BigDataDashboardSS/CustomerAnalytics.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerAnalytics1.png)
+![CustomerAnalytics](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerAnalytics.png)
+![CustomerAnalytics](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerAnalytics1.png)
 
 ### 🤖 AI – HuggingFace Toxic Review  
-![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI1.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI3.png)  
-![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
+![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI.png)
+![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI1.png)
+![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI2.png)
+![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI3.png)
 
-### 📦 Ürünler  
+### 📝 Kategoriler
 ![Category](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Category.png)
 
-![](./wwwroot/BigDataDashboardSS/Product.png)  
-![](./wwwroot/BigDataDashboardSS/Category.png)
+### 📦 Ürünler  
+![Product](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Product.png)
 
 ### 🧾 Siparişler  
-![](./wwwroot/BigDataDashboardSS/Orders.png)
+![Orders](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Orders.png)
 
 ### 📝 Yorumlar  
-![](./wwwroot/BigDataDashboardSS/ReviewList.png)  
-![](./wwwroot/BigDataDashboardSS/ReviewList1.png)
+![ReviewList](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/ReviewList.png)
+![ReviewList](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/ReviewList1.png)
+
 
 ### 💬 Mesajlaşma 
-![](./wwwroot/BigDataDashboardSS/MessageList.png)  
-![](./wwwroot/BigDataDashboardSS/MessageList1.png)
+![MessageList](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/MessageList.png)
+![MessageList](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/MessageList1.png)
 
 ### 📈 ML.NET Tahminleri  
-![](./wwwroot/BigDataDashboardSS/TurkeyCitiesForecast.png)  
-![](./wwwroot/BigDataDashboardSS/GermanyCitiesForecast.png)  
-![](./wwwroot/BigDataDashboardSS/PaymentMethodForecast.png)  
-![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScore.png)  
-![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScore1.png)  
-![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScoreWithML.png)  
-![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScoreWithML1.png)
+![TurkeyCitiesForecast](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/TurkeyCitiesForecast.png)
+![GermanyCitiesForecast](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/GermanyCitiesForecast.png)
+![PaymentMethodForecast](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/PaymentMethodForecast.png)
+![ItalyLoyaltyScore](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/ItalyLoyaltyScore.png)
+![ItalyLoyaltyScore](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/ItalyLoyaltyScore1.png)
+![ItalyLoyaltyScoreWithML](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/ItalyLoyaltyScoreWithML.png)
+![ItalyLoyaltyScoreWithML](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/ItalyLoyaltyScoreWithML1.png)
 
 ### 📊 Sayısal & Metinsel İstatistikler  
-![](./wwwroot/BigDataDashboardSS/Statistics.png)  
-![](./wwwroot/BigDataDashboardSS/TextualStatistics.png)
+![Statistics](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Statistics.png)
+![TextualStatistics.png](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/TextualStatistics.png)
 
 
 # 👨‍💻 Geliştirici  
