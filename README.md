@@ -13,7 +13,7 @@ Bu proje kapsamında analiz edilen veri seti:
 - **78 şehir**
 - **13 ülke**
 
-Proje,  Murat Yücedağ hocanın Udemy platformundaki **Büyük Veri Analitiği & Veri Görselleştirme ve Tahminleme** eğitimindeki veri modeline göre geliştirilmiştir.
+Proje,  Murat Yücedağ hocanın Udemy platformundaki **Büyük Veri Analitiği & Veri Görselleştirme ve Tahminleme** eğitimi temel alınarak  geliştirilmiştir.
 
 ---
 
