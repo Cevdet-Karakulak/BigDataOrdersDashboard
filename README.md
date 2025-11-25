@@ -102,7 +102,6 @@ Tamamen otomatik AI raporu çıkar.
   <img src="https://img.shields.io/badge/MSSQL-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" />
   <img src="https://img.shields.io/badge/ML.NET-FF6B6B?style=for-the-badge" />
   <img src="https://img.shields.io/badge/HuggingFace%20ToxicBERT-FFCC00?style=for-the-badge&logo=huggingface&logoColor=white" />
-  <img src="https://img.shields.io/badge/SignalR-0A66C2?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Chart.js-FD3A5C?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Leaflet%20Map-1C7C54?style=for-the-badge" />
 </p>
@@ -111,59 +110,57 @@ Tamamen otomatik AI raporu çıkar.
 
 ## 📸 Ekran Görüntüleri
 
-
 ### 📊 Dashboard  
-![](BigDataDashboardSS/Dashboard1.png)  
-![](BigDataDashboardSS/Dashboard2.png)  
-![](BigDataDashboardSS/Dashboard3.png)  
-![](BigDataDashboardSS/Dashboard4.png)  
-![](BigDataDashboardSS/Dashboard5.png)
+![](./wwwroot/BigDataDashboardSS/Dashboard1.png)  
+![](./wwwroot/BigDataDashboardSS/Dashboard2.png)  
+![](./wwwroot/BigDataDashboardSS/Dashboard3.png)  
+![](./wwwroot/BigDataDashboardSS/Dashboard4.png)  
+![](./wwwroot/BigDataDashboardSS/Dashboard5.png)
 
 ### 👤 Müşteri  
-![](BigDataDashboardSS/Customer.png)  
-![](BigDataDashboardSS/CustomerList.png)  
-![](BigDataDashboardSS/CustomerDetail1.png)  
-![](BigDataDashboardSS/CustomerDetail2.png)  
-![](BigDataDashboardSS/CustomerDetail3.png)  
-![](BigDataDashboardSS/CustomerDetail4.png)
+![](./wwwroot/BigDataDashboardSS/CustomerList.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerDetail1.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerDetail2.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerDetail3.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerDetail4.png)
 
 ### 🧠 Müşteri Analitiği  
-![](BigDataDashboardSS/CustomerAnalytics.png)  
-![](BigDataDashboardSS/CustomerAnalytics1.png)
+![](./wwwroot/BigDataDashboardSS/CustomerAnalytics.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerAnalytics1.png)
 
 ### 🤖 AI – HuggingFace Toxic Review  
-![](BigDataDashboardSS/CustomerReviewWithOpenAI.png)  
-![](BigDataDashboardSS/CustomerReviewWithOpenAI1.png)  
-![](BigDataDashboardSS/CustomerReviewWithOpenAI3.png)  
-![](BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
+![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI1.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI3.png)  
+![](./wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
 
 ### 📦 Ürünler  
-![](BigDataDashboardSS/Product.png)  
-![](BigDataDashboardSS/Category.png)
+![](./wwwroot/BigDataDashboardSS/Product.png)  
+![](./wwwroot/BigDataDashboardSS/Category.png)
 
 ### 🧾 Siparişler  
-![](BigDataDashboardSS/Orders.png)
+![](./wwwroot/BigDataDashboardSS/Orders.png)
 
 ### 📝 Yorumlar  
-![](BigDataDashboardSS/ReviewList.png)  
-![](BigDataDashboardSS/ReviewList1.png)
+![](./wwwroot/BigDataDashboardSS/ReviewList.png)  
+![](./wwwroot/BigDataDashboardSS/ReviewList1.png)
 
-### 💬 Mesajlaşma (SignalR)  
-![](BigDataDashboardSS/MessageList.png)  
-![](BigDataDashboardSS/MessageList1.png)
+### 💬 Mesajlaşma 
+![](./wwwroot/BigDataDashboardSS/MessageList.png)  
+![](./wwwroot/BigDataDashboardSS/MessageList1.png)
 
 ### 📈 ML.NET Tahminleri  
-![](BigDataDashboardSS/TurkeyCitiesForecast.png)  
-![](BigDataDashboardSS/GermanyCitiesForecast.png)  
-![](BigDataDashboardSS/PaymentMethodForecast.png)  
-![](BigDataDashboardSS/ItalyLoyaltyScore.png)  
-![](BigDataDashboardSS/ItalyLoyaltyScore1.png)  
-![](BigDataDashboardSS/ItalyLoyaltyScoreWithML.png)  
-![](BigDataDashboardSS/ItalyLoyaltyScoreWithML1.png)
+![](./wwwroot/BigDataDashboardSS/TurkeyCitiesForecast.png)  
+![](./wwwroot/BigDataDashboardSS/GermanyCitiesForecast.png)  
+![](./wwwroot/BigDataDashboardSS/PaymentMethodForecast.png)  
+![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScore.png)  
+![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScore1.png)  
+![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScoreWithML.png)  
+![](./wwwroot/BigDataDashboardSS/ItalyLoyaltyScoreWithML1.png)
 
 ### 📊 Sayısal & Metinsel İstatistikler  
-![](BigDataDashboardSS/Statistics.png)  
-![](BigDataDashboardSS/TextualStatistics.png)
+![](./wwwroot/BigDataDashboardSS/Statistics.png)  
+![](./wwwroot/BigDataDashboardSS/TextualStatistics.png)
 
 
 # 👨‍💻 Geliştirici  
