@@ -130,8 +130,8 @@ Tamamen otomatik AI raporu çıkar.
 ### 🤖 AI – HuggingFace Toxic Review  
 ![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI.png)
 ![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI1.png)
-![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI2.png)
 ![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI3.png)
+![CustomerReviewWithOpenAI](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
 
 ### 📝 Kategoriler
 ![Category](https://raw.githubusercontent.com/Cevdet-Karakulak/BigDataOrdersDashboard/master/BigDataOrdersDashboard/wwwroot/BigDataDashboardSS/Category.png)
