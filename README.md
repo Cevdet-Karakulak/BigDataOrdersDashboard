@@ -111,89 +111,60 @@ Tamamen otomatik AI raporu çıkar.
 
 ## 📸 Ekran Görüntüleri
 
-Aşağıda proje kapsamında paylaştığınız **tüm ekran görüntüleri** GitHub’da problemsiz çalışacak şekilde relative path formatında eklenmiştir.  
-Resimler `wwwroot/BigDataDashboardSS/` altında bulunmalıdır.
 
----
+### 📊 Dashboard  
+![](BigDataDashboardSS/Dashboard1.png)  
+![](BigDataDashboardSS/Dashboard2.png)  
+![](BigDataDashboardSS/Dashboard3.png)  
+![](BigDataDashboardSS/Dashboard4.png)  
+![](BigDataDashboardSS/Dashboard5.png)
 
-## Dashboard
-![Dashboard1](./BigDataDashboardSS/Dashboard1.png)
-![Dashboard2](./BigDataDashboardSS/Dashboard2.png)
-![Dashboard3](./BigDataDashboardSS/Dashboard3.png)
-![Dashboard4](./BigDataDashboardSS/Dashboard4.png)
-![Dashboard5](./BigDataDashboardSS/Dashboard5.png)
+### 👤 Müşteri  
+![](BigDataDashboardSS/Customer.png)  
+![](BigDataDashboardSS/CustomerList.png)  
+![](BigDataDashboardSS/CustomerDetail1.png)  
+![](BigDataDashboardSS/CustomerDetail2.png)  
+![](BigDataDashboardSS/CustomerDetail3.png)  
+![](BigDataDashboardSS/CustomerDetail4.png)
 
----
+### 🧠 Müşteri Analitiği  
+![](BigDataDashboardSS/CustomerAnalytics.png)  
+![](BigDataDashboardSS/CustomerAnalytics1.png)
 
-## Customer Analytics
-![CustomerAnalytics](./BigDataDashboardSS/CustomerAnalytics.png)
-![CustomerAnalytics1](./BigDataDashboardSS/CustomerAnalytics1.png)
+### 🤖 AI – HuggingFace Toxic Review  
+![](BigDataDashboardSS/CustomerReviewWithOpenAI.png)  
+![](BigDataDashboardSS/CustomerReviewWithOpenAI1.png)  
+![](BigDataDashboardSS/CustomerReviewWithOpenAI3.png)  
+![](BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
 
----
+### 📦 Ürünler  
+![](BigDataDashboardSS/Product.png)  
+![](BigDataDashboardSS/Category.png)
 
-## Customer Detail (AI Analysis)
-![CustomerDetail](./BigDataDashboardSS/CustomerDetail.png)
-![CustomerDetail1](./BigDataDashboardSS/CustomerDetail1.png)
-![CustomerDetail2](./BigDataDashboardSS/CustomerDetail2.png)
-![CustomerDetail3](./BigDataDashboardSS/CustomerDetail3.png)
-![CustomerDetail4](./BigDataDashboardSS/CustomerDetail4.png)
+### 🧾 Siparişler  
+![](BigDataDashboardSS/Orders.png)
 
----
+### 📝 Yorumlar  
+![](BigDataDashboardSS/ReviewList.png)  
+![](BigDataDashboardSS/ReviewList1.png)
 
-## Customer Review – OpenAI Analysis
-![CustomerReview1](./BigDataDashboardSS/CustomerReviewWithOpenAI.png)
-![CustomerReview2](./BigDataDashboardSS/CustomerReviewWithOpenAI1.png)
-![CustomerReview3](./BigDataDashboardSS/CustomerReviewWithOpenAI2.png)
-![CustomerReview4](./BigDataDashboardSS/CustomerReviewWithOpenAI3.png)
-![CustomerReview5](./BigDataDashboardSS/CustomerReviewWithOpenAI4.png)
+### 💬 Mesajlaşma (SignalR)  
+![](BigDataDashboardSS/MessageList.png)  
+![](BigDataDashboardSS/MessageList1.png)
 
----
+### 📈 ML.NET Tahminleri  
+![](BigDataDashboardSS/TurkeyCitiesForecast.png)  
+![](BigDataDashboardSS/GermanyCitiesForecast.png)  
+![](BigDataDashboardSS/PaymentMethodForecast.png)  
+![](BigDataDashboardSS/ItalyLoyaltyScore.png)  
+![](BigDataDashboardSS/ItalyLoyaltyScore1.png)  
+![](BigDataDashboardSS/ItalyLoyaltyScoreWithML.png)  
+![](BigDataDashboardSS/ItalyLoyaltyScoreWithML1.png)
 
-## Orders
-![Orders](./BigDataDashboardSS/Orders.png)
+### 📊 Sayısal & Metinsel İstatistikler  
+![](BigDataDashboardSS/Statistics.png)  
+![](BigDataDashboardSS/TextualStatistics.png)
 
----
-
-## Category
-![Category](./BigDataDashboardSS/Category.png)
-
----
-
-## Product
-![Product](./BigDataDashboardSS/Product.png)
-
----
-
-## Message List
-![MessageList](./BigDataDashboardSS/MessageList.png)
-![MessageList1](./BigDataDashboardSS/MessageList1.png)
-
----
-
-## Reviews
-![ReviewList](./BigDataDashboardSS/ReviewList.png)
-![ReviewList1](./BigDataDashboardSS/ReviewList1.png)
-
----
-
-## Payment Method Forecast
-![PaymentMethodForecast](./BigDataDashboardSS/PaymentMethodForecast.png)
-
----
-
-## ML.NET Tahminleri
-![TurkeyCitiesForecast](./BigDataDashboardSS/TurkeyCitiesForecast.png)
-![GermanyCitiesForecast](./BigDataDashboardSS/GermanyCitiesForecast.png)
-![ItalyLoyaltyScore](./BigDataDashboardSS/ItalyLoyaltyScore.png)
-![ItalyLoyaltyScore1](./BigDataDashboardSS/ItalyLoyaltyScore1.png)
-![ItalyLoyaltyScoreWithML](./BigDataDashboardSS/ItalyLoyaltyScoreWithML.png)
-![ItalyLoyaltyScoreWithML1](./BigDataDashboardSS/ItalyLoyaltyScoreWithML1.png)
-
----
-
-## Statistics
-![Statistics](./BigDataDashboardSS/Statistics.png)
-![TextualStatistics](./BigDataDashboardSS/TextualStatistics.png)
 
 # 👨‍💻 Geliştirici  
 **Cevdet Karakulak**  
